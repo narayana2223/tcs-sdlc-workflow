@@ -1,0 +1,7 @@
+{
+  "/_not-found": "app/_not-found.js",
+  "/autonomous-agents/page": "app/autonomous-agents/page.js",
+  "/ai-monitoring/page": "app/ai-monitoring/page.js",
+  "/page": "app/page.js",
+  "/live-scenarios/page": "app/live-scenarios/page.js"
+}

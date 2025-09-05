@@ -1,0 +1,175 @@
+# Prometheus alert rules for Flight Disruption Management System
+groups:
+  - name: flight-disruption-system
+    rules:
+    
+    # High-level system alerts
+    - alert: ServiceDown
+      expr: up == 0
+      for: 1m
+      labels:
+        severity: critical
+      annotations:
+        summary: "Service {{ $labels.job }} is down"
+        description: "Service {{ $labels.job }} on {{ $labels.instance }} has been down for more than 1 minute."
+
+    - alert: HighErrorRate
+      expr: (rate(gateway_requests_total{status=~"5.."}[5m]) / rate(gateway_requests_total[5m])) > 0.1
+      for: 2m
+      labels:
+        severity: warning
+      annotations:
+        summary: "High error rate detected"
+        description: "Error rate is above 10% for {{ $labels.job }} (current: {{ $value }}%)"
+
+    - alert: HighResponseTime
+      expr: histogram_quantile(0.95, rate(gateway_request_duration_seconds_bucket[5m])) > 2
+      for: 3m
+      labels:
+        severity: warning
+      annotations:
+        summary: "High response time"
+        description: "95th percentile response time is {{ $value }}s for {{ $labels.job }}"
+
+    # Database alerts
+    - alert: DatabaseConnectionsHigh
+      expr: pg_stat_database_numbackends > 80
+      for: 2m
+      labels:
+        severity: warning
+      annotations:
+        summary: "High database connections"
+        description: "Database has {{ $value }} connections (threshold: 80)"
+
+    - alert: DatabaseDown
+      expr: pg_up == 0
+      for: 1m
+      labels:
+        severity: critical
+      annotations:
+        summary: "Database is down"
+        description: "PostgreSQL database is not responding"
+
+    # Redis alerts
+    - alert: RedisDown
+      expr: redis_up == 0
+      for: 1m
+      labels:
+        severity: critical
+      annotations:
+        summary: "Redis is down"
+        description: "Redis cache server is not responding"
+
+    - alert: RedisMemoryHigh
+      expr: (redis_memory_used_bytes / redis_memory_max_bytes) > 0.9
+      for: 5m
+      labels:
+        severity: warning
+      annotations:
+        summary: "Redis memory usage high"
+        description: "Redis memory usage is {{ $value }}% of limit"
+
+    # Kafka alerts
+    - alert: KafkaDown
+      expr: kafka_server_broker_state != 3
+      for: 1m
+      labels:
+        severity: critical
+      annotations:
+        summary: "Kafka broker is down"
+        description: "Kafka broker {{ $labels.instance }} is not in running state"
+
+    - alert: KafkaConsumerLag
+      expr: kafka_consumer_lag_sum > 10000
+      for: 5m
+      labels:
+        severity: warning
+      annotations:
+        summary: "High Kafka consumer lag"
+        description: "Consumer group {{ $labels.consumergroup }} has lag of {{ $value }} messages"
+
+    # Business logic alerts
+    - alert: HighDisruptionRate
+      expr: rate(disruption_predictions_total{predicted_disruption_type!="none"}[1h]) > 0.5
+      for: 10m
+      labels:
+        severity: warning
+      annotations:
+        summary: "High flight disruption rate"
+        description: "Disruption prediction rate is {{ $value }} per hour"
+
+    - alert: RebookingFailureRate
+      expr: (rate(rebookings_total{status="failed"}[5m]) / rate(rebookings_total[5m])) > 0.2
+      for: 5m
+      labels:
+        severity: warning
+      annotations:
+        summary: "High rebooking failure rate"
+        description: "Rebooking failure rate is {{ $value }}%"
+
+    - alert: NotificationFailureRate
+      expr: (rate(notifications_sent_total{status="failed"}[5m]) / rate(notifications_sent_total[5m])) > 0.1
+      for: 5m
+      labels:
+        severity: warning
+      annotations:
+        summary: "High notification failure rate"
+        description: "Notification failure rate is {{ $value }}%"
+
+    - alert: PredictionAccuracyDrop
+      expr: avg_over_time(prediction_accuracy_score[24h]) < 0.7
+      for: 30m
+      labels:
+        severity: warning
+      annotations:
+        summary: "Prediction accuracy dropped"
+        description: "24-hour average prediction accuracy is {{ $value }} (threshold: 0.7)"
+
+    # System resource alerts
+    - alert: HighCPUUsage
+      expr: (100 - (avg by (instance) (irate(node_cpu_seconds_total{mode="idle"}[5m])) * 100)) > 80
+      for: 5m
+      labels:
+        severity: warning
+      annotations:
+        summary: "High CPU usage"
+        description: "CPU usage is {{ $value }}% on {{ $labels.instance }}"
+
+    - alert: HighMemoryUsage
+      expr: (1 - (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes)) > 0.85
+      for: 5m
+      labels:
+        severity: warning
+      annotations:
+        summary: "High memory usage"
+        description: "Memory usage is {{ $value }}% on {{ $labels.instance }}"
+
+    - alert: DiskSpaceLow
+      expr: (1 - (node_filesystem_avail_bytes / node_filesystem_size_bytes)) > 0.85
+      for: 5m
+      labels:
+        severity: warning
+      annotations:
+        summary: "Low disk space"
+        description: "Disk usage is {{ $value }}% on {{ $labels.instance }} {{ $labels.mountpoint }}"
+
+  # SLA monitoring
+  - name: sla-monitoring
+    rules:
+    - alert: SLABreach
+      expr: (rate(gateway_requests_total{status!~"5.."}[5m]) / rate(gateway_requests_total[5m])) < 0.99
+      for: 5m
+      labels:
+        severity: critical
+      annotations:
+        summary: "SLA breach - availability below 99%"
+        description: "Current availability: {{ $value }}%"
+
+    - alert: ResponseTimeSLABreach
+      expr: histogram_quantile(0.95, rate(gateway_request_duration_seconds_bucket[5m])) > 1
+      for: 10m
+      labels:
+        severity: warning
+      annotations:
+        summary: "Response time SLA breach"
+        description: "95th percentile response time {{ $value }}s exceeds 1s SLA"

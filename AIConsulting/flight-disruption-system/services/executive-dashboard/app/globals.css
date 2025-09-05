@@ -1,0 +1,183 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  
+  body {
+    @apply bg-slate-50 font-sans antialiased;
+  }
+
+  /* Mobile optimizations */
+  @media (max-width: 768px) {
+    .card {
+      @apply p-4;
+    }
+    
+    .card-header {
+      @apply flex-col space-y-2 items-start;
+    }
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-white rounded-xl shadow-sm border border-slate-200 p-6;
+  }
+  
+  .card-header {
+    @apply flex items-center justify-between mb-4;
+  }
+  
+  .metric-card {
+    @apply bg-gradient-to-r from-white to-slate-50 rounded-xl shadow-sm border border-slate-200 p-4;
+  }
+  
+  .status-badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  
+  .status-success {
+    @apply bg-success-100 text-success-600;
+  }
+  
+  .status-warning {
+    @apply bg-warning-100 text-warning-600;
+  }
+  
+  .status-danger {
+    @apply bg-danger-100 text-danger-600;
+  }
+  
+  .pulse-indicator {
+    @apply relative inline-flex rounded-full h-3 w-3;
+  }
+  
+  .pulse-indicator::before {
+    @apply absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping;
+    content: '';
+  }
+
+  /* Mobile responsive utilities */
+  .mobile-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4;
+  }
+  
+  .mobile-stack {
+    @apply flex flex-col md:flex-row md:items-center md:justify-between space-y-2 md:space-y-0;
+  }
+
+  .mobile-hide {
+    @apply hidden md:block;
+  }
+
+  .mobile-show {
+    @apply block md:hidden;
+  }
+
+  /* Dashboard specific responsive classes */
+  .dashboard-grid {
+    @apply grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6;
+  }
+
+  .dashboard-col-8 {
+    @apply col-span-1 lg:col-span-8;
+  }
+
+  .dashboard-col-4 {
+    @apply col-span-1 lg:col-span-4;
+  }
+
+  /* Interactive elements for touch devices */
+  .touch-target {
+    @apply min-h-[44px] min-w-[44px];
+  }
+
+  /* Scroll optimizations for mobile */
+  .mobile-scroll {
+    @apply overflow-x-auto scrollbar-hide;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer utilities {
+  /* Text truncation utilities */
+  .line-clamp-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+  }
+  
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+  
+  .line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+
+  /* Mobile-first responsive text sizes */
+  .text-responsive-xs {
+    @apply text-xs sm:text-sm;
+  }
+  
+  .text-responsive-sm {
+    @apply text-sm sm:text-base;
+  }
+  
+  .text-responsive-base {
+    @apply text-base sm:text-lg;
+  }
+  
+  .text-responsive-lg {
+    @apply text-lg sm:text-xl;
+  }
+  
+  .text-responsive-xl {
+    @apply text-xl sm:text-2xl;
+  }
+  
+  .text-responsive-2xl {
+    @apply text-2xl sm:text-3xl;
+  }
+
+  /* Spacing utilities for mobile */
+  .space-responsive {
+    @apply space-y-4 lg:space-y-6;
+  }
+
+  .p-responsive {
+    @apply p-4 lg:p-6;
+  }
+
+  .m-responsive {
+    @apply m-4 lg:m-6;
+  }
+
+  /* Mobile-optimized animations */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-pulse,
+    .animate-bounce,
+    .animate-ping {
+      animation: none;
+    }
+  }
+}
