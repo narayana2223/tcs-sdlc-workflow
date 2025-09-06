@@ -21,6 +21,10 @@ import {
   Settings,
   Maximize2
 } from 'lucide-react';
+// Shared components temporarily disabled due to dependency issues
+// import DecisionStream from '../../../shared/components/DecisionStream';
+// import AgentCollaboration from '../../../shared/components/AgentCollaboration';
+// import DataFlowVisualization from '../../../shared/components/DataFlowVisualization';
 
 interface LiveMetrics {
   todaysSavings: number;
@@ -507,6 +511,81 @@ export default function CXOOperationsCommandCenter() {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ENHANCED AGENTIC INTELLIGENCE PANELS */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 px-8">
+        {/* Real-time Decision Stream */}
+        <div className="lg:col-span-1">
+          <div className="bg-white/5 backdrop-blur-2xl rounded-3xl border border-white/10 shadow-2xl">
+            <div className="p-6 border-b border-white/10">
+              <div className="flex items-center space-x-4">
+                <div className="p-3 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-2xl border border-cyan-400/30">
+                  <Activity className="w-7 h-7 text-cyan-400" />
+                </div>
+                <div>
+                  <h2 className="text-xl font-bold text-white tracking-wide">🔄 DECISION STREAM</h2>
+                  <p className="text-sm text-cyan-400 font-medium">Live AI Reasoning</p>
+                </div>
+              </div>
+            </div>
+            <div className="p-6">
+              <div className="text-center text-gray-400">
+                <div className="text-4xl mb-2">🔄</div>
+                <p className="text-sm">Decision Stream Component</p>
+                <p className="text-xs text-gray-500">Available in Agentic Intelligence page</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Agent Collaboration Monitor */}
+        <div className="lg:col-span-1">
+          <div className="bg-white/5 backdrop-blur-2xl rounded-3xl border border-white/10 shadow-2xl">
+            <div className="p-6 border-b border-white/10">
+              <div className="flex items-center space-x-4">
+                <div className="p-3 bg-gradient-to-r from-violet-500/20 to-purple-500/20 rounded-2xl border border-violet-400/30">
+                  <Bot className="w-7 h-7 text-violet-400" />
+                </div>
+                <div>
+                  <h2 className="text-xl font-bold text-white tracking-wide">🤝 AGENT COLLABORATION</h2>
+                  <p className="text-sm text-violet-400 font-medium">Multi-Agent Consensus</p>
+                </div>
+              </div>
+            </div>
+            <div className="p-6">
+              <div className="text-center text-gray-400">
+                <div className="text-4xl mb-2">🤝</div>
+                <p className="text-sm">Agent Collaboration Component</p>
+                <p className="text-xs text-gray-500">Available in Agentic Intelligence page</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Data Flow Visualization */}
+        <div className="lg:col-span-1">
+          <div className="bg-white/5 backdrop-blur-2xl rounded-3xl border border-white/10 shadow-2xl">
+            <div className="p-6 border-b border-white/10">
+              <div className="flex items-center space-x-4">
+                <div className="p-3 bg-gradient-to-r from-emerald-500/20 to-green-500/20 rounded-2xl border border-emerald-400/30">
+                  <MapPin className="w-7 h-7 text-emerald-400" />
+                </div>
+                <div>
+                  <h2 className="text-xl font-bold text-white tracking-wide">📊 DATA FLOW</h2>
+                  <p className="text-sm text-emerald-400 font-medium">Inter-Module Communication</p>
+                </div>
+              </div>
+            </div>
+            <div className="p-6">
+              <div className="text-center text-gray-400">
+                <div className="text-4xl mb-2">📊</div>
+                <p className="text-sm">Data Flow Visualization Component</p>
+                <p className="text-xs text-gray-500">Available in Agentic Intelligence page</p>
+              </div>
             </div>
           </div>
         </div>

@@ -25,6 +25,9 @@ import {
   Wifi,
   Gift
 } from 'lucide-react';
+import DecisionStream from '../../../shared/components/DecisionStream';
+import AgentCollaboration from '../../../shared/components/AgentCollaboration';
+import DataFlowVisualization from '../../../shared/components/DataFlowVisualization';
 
 interface ProactiveAlert {
   id: string;

@@ -1,50 +1,30 @@
 {
   "pages": {
-    "/_not-found": [
-      "static/chunks/webpack-411c5f51e30d2db4.js",
-      "static/chunks/fd9d1056-da58663ea58a581a.js",
-      "static/chunks/69-8eaa7b2d743d4361.js",
-      "static/chunks/main-app-a1ad0ff4ff1fc953.js",
-      "static/chunks/app/_not-found-89f863d07d0e0fad.js"
-    ],
     "/layout": [
-      "static/chunks/webpack-411c5f51e30d2db4.js",
-      "static/chunks/fd9d1056-da58663ea58a581a.js",
-      "static/chunks/69-8eaa7b2d743d4361.js",
-      "static/chunks/main-app-a1ad0ff4ff1fc953.js",
-      "static/chunks/937-032696a92971b9d8.js",
-      "static/css/af30bd52530ebedb.css",
-      "static/chunks/app/layout-5c1801ebe2038b22.js"
-    ],
-    "/autonomous-agents/page": [
-      "static/chunks/webpack-411c5f51e30d2db4.js",
-      "static/chunks/fd9d1056-da58663ea58a581a.js",
-      "static/chunks/69-8eaa7b2d743d4361.js",
-      "static/chunks/main-app-a1ad0ff4ff1fc953.js",
-      "static/chunks/app/autonomous-agents/page-1be506d7a7530b52.js"
-    ],
-    "/ai-monitoring/page": [
-      "static/chunks/webpack-411c5f51e30d2db4.js",
-      "static/chunks/fd9d1056-da58663ea58a581a.js",
-      "static/chunks/69-8eaa7b2d743d4361.js",
-      "static/chunks/main-app-a1ad0ff4ff1fc953.js",
-      "static/chunks/937-032696a92971b9d8.js",
-      "static/chunks/934-165327e33c89a96b.js",
-      "static/chunks/app/ai-monitoring/page-e163665de7025af9.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/layout.css",
+      "static/chunks/app/layout.js"
     ],
     "/page": [
-      "static/chunks/webpack-411c5f51e30d2db4.js",
-      "static/chunks/fd9d1056-da58663ea58a581a.js",
-      "static/chunks/69-8eaa7b2d743d4361.js",
-      "static/chunks/main-app-a1ad0ff4ff1fc953.js",
-      "static/chunks/app/page-9f79f5c64d97804d.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/page.js"
     ],
-    "/live-scenarios/page": [
-      "static/chunks/webpack-411c5f51e30d2db4.js",
-      "static/chunks/fd9d1056-da58663ea58a581a.js",
-      "static/chunks/69-8eaa7b2d743d4361.js",
-      "static/chunks/main-app-a1ad0ff4ff1fc953.js",
-      "static/chunks/app/live-scenarios/page-bf5d002a61d25091.js"
+    "/real-intelligence/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/real-intelligence/page.js"
+    ],
+    "/ai-monitoring/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/ai-monitoring/page.js"
+    ],
+    "/autonomous-agents/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/autonomous-agents/page.js"
     ]
   }
 }
