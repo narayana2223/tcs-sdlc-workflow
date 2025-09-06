@@ -23,9 +23,21 @@ const navigationItems = [
     description: 'Main disruption management overview'
   },
   {
+    name: 'Real Intelligence',
+    href: '/real-intelligence',
+    icon: Zap,
+    description: '✅ FUNCTIONAL agentic intelligence system'
+  },
+  {
+    name: 'Agentic Intelligence',
+    href: '/agentic-intelligence',
+    icon: Brain,
+    description: 'Static agentic AI demonstration suite'
+  },
+  {
     name: 'AI Monitoring',
     href: '/ai-monitoring',
-    icon: Brain,
+    icon: Activity,
     description: 'AI agent decision tracking'
   },
   {
