@@ -1,0 +1,30 @@
+from setuptools import setup, find_packages
+
+setup(
+    name="app-transformation-analyzer-engine",
+    version="0.1.0",
+    description="Analysis engine for Application Transformation Analyzer",
+    packages=find_packages(where="src"),
+    package_dir={"": "src"},
+    python_requires=">=3.8",
+    install_requires=[
+        "requests>=2.31.0",
+        "gitpython>=3.1.40",
+        "networkx>=3.2.1",
+        "pandas>=2.1.4",
+        "numpy>=1.25.2",
+        "matplotlib>=3.8.2",
+        "seaborn>=0.13.0",
+        "scipy>=1.11.4",
+        "scikit-learn>=1.3.2",
+        "pyyaml>=6.0.1",
+        "python-dotenv>=1.0.0",
+    ],
+    extras_require={
+        "dev": [
+            "pytest>=7.4.3",
+            "black>=23.11.0",
+            "flake8>=6.1.0",
+        ]
+    },
+)
