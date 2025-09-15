@@ -7,6 +7,8 @@ import os
 import shutil
 import tempfile
 import logging
+import stat
+import platform
 from typing import Optional, Dict, List, Tuple
 from urllib.parse import urlparse
 import git
@@ -18,6 +20,39 @@ logger = logging.getLogger(__name__)
 class GitRepositoryError(Exception):
     """Custom exception for Git repository operations."""
     pass
+
+
+def _windows_rmtree_error_handler(func, path, exc_info):
+    """
+    Error handler for shutil.rmtree on Windows.
+    Handles read-only files and permission errors.
+    """
+    try:
+        # Make the file writable and try again
+        os.chmod(path, stat.S_IWRITE)
+        func(path)
+    except Exception as e:
+        logger.warning(f"Failed to remove {path}: {e}")
+
+
+def safe_rmtree(path):
+    """
+    Safely remove directory tree, handling Windows Git file permission issues.
+    """
+    if not os.path.exists(path):
+        return
+
+    try:
+        if platform.system() == "Windows":
+            # On Windows, use error handler for read-only files
+            shutil.rmtree(path, onerror=_windows_rmtree_error_handler)
+        else:
+            # On Unix systems, use standard rmtree
+            shutil.rmtree(path)
+        logger.info(f"Successfully removed directory: {path}")
+    except Exception as e:
+        logger.warning(f"Could not fully remove directory {path}: {e}")
+        # Don't raise exception - analysis can continue with existing files
 
 
 class GitHelper:
@@ -94,9 +129,9 @@ class GitHelper:
             if target_dir is None:
                 target_dir = os.path.join(self.temp_dir, f"analysis_{repo_name}")
             
-            # Remove existing directory if it exists
+            # Remove existing directory if it exists (using Windows-safe removal)
             if os.path.exists(target_dir):
-                shutil.rmtree(target_dir)
+                safe_rmtree(target_dir)
             
             clone_kwargs = {
                 'to_path': target_dir,

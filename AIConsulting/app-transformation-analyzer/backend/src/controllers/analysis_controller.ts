@@ -23,7 +23,7 @@ export class AnalysisController {
   constructor() {
     this.analysisService = new AnalysisService();
     // Use mock service for demo purposes when analysis engine is not available
-    this.useMockService = process.env.USE_MOCK_ANALYSIS === 'true' || true;
+    this.useMockService = process.env.USE_MOCK_ANALYSIS === 'true';
   }
 
   /**

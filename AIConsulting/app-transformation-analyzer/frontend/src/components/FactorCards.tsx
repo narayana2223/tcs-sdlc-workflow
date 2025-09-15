@@ -201,26 +201,18 @@ const FactorCards: React.FC<FactorCardsProps> = ({
     }
 
     if (localGroupBy === 'score') {
-      const groups: { [key: string]: [string, FactorEvaluation][] } = {
-        'Excellent (5)': [],
-        'Good (4)': [],
-        'Fair (3)': [],
-        'Poor (2)': [],
-        'Missing (1)': []
-      };
+      const groups: { [key: string]: [string, FactorEvaluation][] } = {};
 
       filteredFactors.forEach(([name, factor]) => {
-        const key = `${factor.score_name} (${factor.score})`;
-        if (groups[key]) {
-          groups[key].push([name, factor]);
-        }
-      });
+        // Create dynamic group key based on actual score and score_name
+        const groupKey = `${factor.score_name} (${factor.score})`;
 
-      // Remove empty groups
-      Object.keys(groups).forEach(key => {
-        if (groups[key].length === 0) {
-          delete groups[key];
+        // Initialize group if it doesn't exist
+        if (!groups[groupKey]) {
+          groups[groupKey] = [];
         }
+
+        groups[groupKey].push([name, factor]);
       });
 
       return groups;

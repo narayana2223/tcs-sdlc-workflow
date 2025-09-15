@@ -11,9 +11,9 @@ from datetime import datetime
 import networkx as nx
 from collections import defaultdict, Counter
 
-from ..utils.git_helper import GitHelper, GitRepositoryError, get_repository_statistics
-from ..utils.code_parser import CodeParser, FileAnalysis, calculate_project_metrics
-from ..utils.dependency_analyzer import DependencyAnalyzer, DependencyAnalyzerError
+from utils.git_helper import GitHelper, GitRepositoryError, get_repository_statistics
+from utils.code_parser import CodeParser, FileAnalysis, calculate_project_metrics
+from utils.dependency_analyzer import DependencyAnalyzer, DependencyAnalyzerError
 
 logger = logging.getLogger(__name__)
 

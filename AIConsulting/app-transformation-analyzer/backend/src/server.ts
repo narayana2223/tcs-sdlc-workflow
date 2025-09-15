@@ -14,6 +14,9 @@ import compression from 'compression';
 // Import routes
 import analysisRoutes from './routes/analysis';
 import assessmentRoutes from './routes/assessment';
+import opportunitiesRoutes from './routes/opportunities';
+import roadmapRoutes from './routes/roadmap';
+import prototypeRoutes from './routes/prototypes';
 import healthRoutes from './routes/health';
 
 // Load environment variables
@@ -55,9 +58,9 @@ class Server {
       },
     }));
 
-    // CORS configuration
+    // CORS configuration - Updated to include all ports
     const corsOptions = {
-      origin: process.env.CORS_ORIGIN?.split(',') || ['http://localhost:3000', 'http://localhost:3001'],
+      origin: process.env.CORS_ORIGIN?.split(',') || ['http://localhost:3000', 'http://localhost:3001', 'http://localhost:3002', 'http://localhost:3003'],
       credentials: true,
       methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
       allowedHeaders: ['Content-Type', 'Authorization', 'x-api-key'],
@@ -120,6 +123,9 @@ class Server {
     // API routes - no authentication required
     this.app.use('/api/analysis', analysisRoutes);
     this.app.use('/api/assessment', assessmentRoutes);
+    this.app.use('/api/opportunities', opportunitiesRoutes);
+    this.app.use('/api/roadmap', roadmapRoutes);
+    this.app.use('/api/prototypes', prototypeRoutes);
 
     // Root endpoint
     this.app.get('/', (req: Request, res: Response) => {
@@ -132,6 +138,8 @@ class Server {
           health: '/health',
           analysis: '/api/analysis',
           assessment: '/api/assessment',
+          opportunities: '/api/opportunities',
+          roadmap: '/api/roadmap',
         },
       });
     });

@@ -35,12 +35,15 @@ import {
   LightMode as LightModeIcon,
   DarkMode as DarkModeIcon,
   Transform as TransformIcon,
+  Timeline as TimelineIcon,
 } from '@mui/icons-material';
 
 // Import pages
 import Dashboard from './pages/Dashboard';
 import RepositoryAnalysis from './pages/RepositoryAnalysis';
 import AssessmentResultsPage from './pages/AssessmentResults';
+import TransformationOpportunities from './pages/TransformationOpportunities';
+import RoadmapBuilder from './pages/RoadmapBuilder';
 import AnalysisProgress from './pages/AnalysisProgress';
 import AnalysisResults from './pages/AnalysisResults';
 
@@ -114,9 +117,14 @@ const navigationItems: NavigationItem[] = [
     icon: <AssessmentIcon />,
   },
   {
-    path: '/planning',
-    label: 'Transformation Planning',
+    path: '/opportunities',
+    label: 'Transformation Opportunities',
     icon: <TransformIcon />,
+  },
+  {
+    path: '/roadmap',
+    label: 'Roadmap Builder',
+    icon: <TimelineIcon />,
   },
 ];
 
@@ -274,7 +282,8 @@ const App: React.FC = () => {
               <Route path="/analysis/results/:jobId" element={<AnalysisResults />} />
               <Route path="/assessment" element={<AssessmentResultsPage />} />
               <Route path="/assessment/:jobId" element={<AssessmentResultsPage />} />
-              <Route path="/planning" element={<PlanningPlaceholder />} />
+              <Route path="/opportunities" element={<TransformationOpportunities />} />
+              <Route path="/roadmap" element={<RoadmapBuilder />} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </Box>

@@ -173,7 +173,7 @@ export class AnalysisService extends EventEmitter {
         { timeout: 10000 }
       );
 
-      return { accessible: response.data.accessible, error: response.data.error };
+      return { accessible: response.data.data.accessible, error: response.data.data.error };
     } catch (error) {
       if (axios.isAxiosError(error)) {
         if (error.response?.status === 404) {
@@ -315,7 +315,7 @@ export class AnalysisService extends EventEmitter {
         }
       );
 
-      return response.data;
+      return response.data.data;
     } catch (error) {
       if (axios.isAxiosError(error)) {
         if (error.code === 'ECONNREFUSED') {
