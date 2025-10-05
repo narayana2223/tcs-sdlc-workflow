@@ -185,7 +185,7 @@ export default function ValueChain() {
                             {metric.improvement}% improvement
                           </div>
                         )}
-                        {metric.value && (
+                        {'value' in metric && metric.value && (
                           <div className="text-lg font-bold text-green-600">{metric.value}</div>
                         )}
                       </div>
