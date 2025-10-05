@@ -1,0 +1,65 @@
+{
+  "securityThreats": [
+    {
+      "threat": "Prompt Injection",
+      "severity": "High",
+      "likelihood": "85%",
+      "mitigation": "Input sanitization, prompt template restrictions",
+      "effectiveness": "80%"
+    },
+    {
+      "threat": "Model Poisoning",
+      "severity": "Very High",
+      "likelihood": "Medium",
+      "mitigation": "Model provenance tracking, training data integrity verification",
+      "effectiveness": "60%"
+    },
+    {
+      "threat": "Data Exfiltration",
+      "severity": "High",
+      "likelihood": "High",
+      "mitigation": "Data masking, encryption, access controls",
+      "effectiveness": "85%"
+    }
+  ],
+  "regulatoryCompliance": [
+    {
+      "regulation": "EU AI Act",
+      "timeline": "2025-2027 rollout",
+      "requirement": "Risk assessment, human oversight",
+      "penalty": "4% global revenue"
+    },
+    {
+      "regulation": "NIST AI RMF",
+      "timeline": "Immediate",
+      "requirement": "Risk management framework",
+      "penalty": "Contract termination"
+    },
+    {
+      "regulation": "GDPR Article 22",
+      "timeline": "Ongoing",
+      "requirement": "Automated decision rights",
+      "penalty": "€20M or 4% revenue"
+    }
+  ],
+  "governanceFramework": {
+    "chiefAIOfficer": "Accountable executive",
+    "committees": [
+      "AI Ethics Committee (Policy & Standards)",
+      "AI Risk Committee (Risk Management)",
+      "AI Operations Committee (Implementation)"
+    ]
+  },
+  "riskMitigationValue": {
+    "penaltyAvoidance": "$5-50M",
+    "breachPrevention": "$4.3M average cost avoidance",
+    "operationalRisk": "$2.8M annual efficiency gains",
+    "reputationProtection": "$15M+ brand value preservation"
+  },
+  "sources": [
+    "NIST AI Risk Management Framework",
+    "EU AI Act official text",
+    "OWASP AI Security Guide",
+    "Industry incident reports 2024"
+  ]
+}

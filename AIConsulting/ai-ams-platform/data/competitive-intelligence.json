@@ -1,0 +1,190 @@
+{
+  "marketDynamics": {
+    "productivityGains": "60-80%",
+    "incidentNoiseReduction": "90%",
+    "totalAddressableMarket": "$50B+",
+    "pricingShift": "Seat-based to outcome-based"
+  },
+  "big4": [
+    {
+      "company": "Accenture",
+      "platform": "GenWizard",
+      "positioning": "AI-First Enterprise Transformation Leader",
+      "scale": "300+ GenAI use cases across 1,500+ client projects",
+      "investment": "$3B in AI capabilities over 3 years",
+      "workforce": "40,000+ AI-trained professionals",
+      "keyDifferentiators": [
+        "Industry-Specific AI Models for banking, healthcare, manufacturing",
+        "Responsible AI Framework with bias detection and explainability",
+        "25+ years of transformation experience applied to AI adoption"
+      ],
+      "amsCapabilities": [
+        {
+          "name": "Intelligent Incident Management",
+          "impact": "85% reduction in MTTR through predictive analytics"
+        },
+        {
+          "name": "Code Modernization",
+          "impact": "Legacy system transformation with AI-assisted refactoring"
+        },
+        {
+          "name": "Automated Testing",
+          "impact": "70% reduction in testing cycles"
+        }
+      ],
+      "marketApproach": "Premium pricing justified by transformation outcomes",
+      "threatLevel": 8
+    },
+    {
+      "company": "Cognizant",
+      "platform": "Neuro AI",
+      "positioning": "Pragmatic AI Implementation at Scale",
+      "scale": "500+ AI agents across client environments",
+      "investment": "Pragmatic approach",
+      "workforce": "Industry-aligned AI solutions",
+      "keyDifferentiators": [
+        "Multi-Agent Orchestration for complex AMS workflows",
+        "Pre-configured agents reducing implementation time by 60%",
+        "Focus on immediate ROI with measured AI adoption"
+      ],
+      "amsCapabilities": [
+        {
+          "name": "ServiceNow Integration",
+          "impact": "Native AI agents for ITSM workflow automation"
+        },
+        {
+          "name": "Application Modernization",
+          "impact": "AI-driven technical debt assessment and remediation"
+        },
+        {
+          "name": "Performance Optimization",
+          "impact": "Real-time application health monitoring"
+        }
+      ],
+      "marketApproach": "Value-based pricing with guaranteed productivity metrics",
+      "threatLevel": 7
+    },
+    {
+      "company": "Infosys",
+      "platform": "Topaz",
+      "positioning": "AI-Native Services Ecosystem",
+      "scale": "200+ Enterprise AI Agents, 50,000+ reusable AI services",
+      "investment": "$2B commitment over 4 years",
+      "workforce": "End-to-end SDLC automation capabilities",
+      "keyDifferentiators": [
+        "AI Services Marketplace - largest repository of pre-built AI solutions",
+        "Zero-Touch Operations for routine issues",
+        "Cognitive Automation with learning systems"
+      ],
+      "amsCapabilities": [
+        {
+          "name": "Automated Code Review",
+          "impact": "AI-powered code quality and security analysis"
+        },
+        {
+          "name": "Intelligent Monitoring",
+          "impact": "Proactive issue detection across hybrid cloud"
+        },
+        {
+          "name": "Self-Healing Systems",
+          "impact": "80% of common incidents auto-resolved"
+        }
+      ],
+      "marketApproach": "Platform-as-a-Service with consumption-based pricing",
+      "threatLevel": 7
+    },
+    {
+      "company": "Wipro",
+      "platform": "HOLMES",
+      "positioning": "Cognitive Enterprise Operations",
+      "scale": "55,000+ AI associates across client operations",
+      "investment": "Strategic alliances with HPE, Microsoft",
+      "workforce": "Cognitive automation focus",
+      "keyDifferentiators": [
+        "Virtual Workforce Integration - seamless human-AI collaboration",
+        "Sector-Specific Solutions for banking, healthcare, energy",
+        "Enterprise-grade security and compliance frameworks"
+      ],
+      "amsCapabilities": [
+        {
+          "name": "Cognitive Service Desk",
+          "impact": "Natural language processing for ticket resolution"
+        },
+        {
+          "name": "Automated DevOps",
+          "impact": "End-to-end pipeline management with AI optimization"
+        },
+        {
+          "name": "Predictive Maintenance",
+          "impact": "Proactive system health management"
+        }
+      ],
+      "marketApproach": "Outcome-based contracts with shared risk/reward models",
+      "threatLevel": 6
+    }
+  ],
+  "platformGiants": [
+    {
+      "company": "ServiceNow",
+      "revenue": "$7.05B",
+      "penetration": "80% of Fortune 500",
+      "aiCapability": "Predictive AIOps with workflow automation",
+      "threatLevel": 10
+    },
+    {
+      "company": "Datadog",
+      "marketCap": "$37B",
+      "focus": "Unified observability platform",
+      "aiCapability": "AI-powered insights",
+      "threatLevel": 9
+    },
+    {
+      "company": "PagerDuty",
+      "marketCap": "$1.01B",
+      "penetration": "70% of DevOps teams",
+      "aiCapability": "Real-time incident response automation with ML insights",
+      "threatLevel": 9
+    },
+    {
+      "company": "GitHub Copilot",
+      "revenue": "$1B+ run rate",
+      "penetration": "50M+ developers",
+      "aiCapability": "AI-powered code generation",
+      "threatLevel": 10
+    }
+  ],
+  "startupSwarm": {
+    "totalFunding": "$8.2B+ (2024)",
+    "totalStartups": 78,
+    "veryHighThreat": {
+      "count": 22,
+      "percentage": "28%",
+      "examples": ["Cursor ($2.5B)", "Glean ($4.5B)", "Snyk ($7.4B)", "Poolside AI ($3B+)"],
+      "characteristics": "70-90% productivity gains, direct client procurement risk"
+    },
+    "highThreat": {
+      "count": 31,
+      "percentage": "40%",
+      "examples": ["testRigor", "incident.io", "Mabl", "Applitools"]
+    },
+    "mediumThreat": {
+      "count": 25,
+      "percentage": "32%",
+      "examples": ["Keep", "CodeAnt AI", "Corgea", "Laminar"]
+    }
+  },
+  "sources": [
+    "Company investor decks Q3 2024",
+    "Public company filings",
+    "Gartner Market Research",
+    "Crunchbase 2024-2025",
+    "CB Insights"
+  ],
+  "keyInsights": [
+    "The market is being attacked from three sides: Big 4, Platform Giants, and 78 Startups",
+    "You have 18 months to respond",
+    "Big 4 are pricing 20-30% premium with AI story",
+    "Platform giants are automating L1/L2 support out of existence",
+    "Clients will buy startups directly unless you integrate them"
+  ]
+}

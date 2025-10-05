@@ -1,0 +1,107 @@
+{
+  "executiveSummary": {
+    "l1Reduction": "67%",
+    "l2Evolution": "43%",
+    "upskillingRequired": "85%",
+    "annualSavings": "$4.6M per 100-person team",
+    "transitionPeriod": "8-12 months"
+  },
+  "traditionalStructure": {
+    "totalFTEs": 100,
+    "totalCost": 10550000,
+    "roles": [
+      {
+        "level": "L1 Support",
+        "responsibilities": "Ticket triage, basic troubleshooting, password resets",
+        "skills": "ITIL, basic scripting, customer service",
+        "teamSize": 45,
+        "annualCost": 2700000
+      },
+      {
+        "level": "L2 Technical",
+        "responsibilities": "Complex troubleshooting, application debugging, escalation management",
+        "skills": "Programming, databases, networking",
+        "teamSize": 35,
+        "annualCost": 4200000
+      },
+      {
+        "level": "L3 Specialists",
+        "responsibilities": "Architecture decisions, root cause analysis, vendor escalation",
+        "skills": "Deep technical expertise, system design",
+        "teamSize": 15,
+        "annualCost": 2900000
+      },
+      {
+        "level": "Management",
+        "responsibilities": "Team coordination, SLA management, resource planning",
+        "skills": "Project management, ITIL processes",
+        "teamSize": 5,
+        "annualCost": 750000
+      }
+    ]
+  },
+  "roleTransformations": [
+    {
+      "from": "L1 Support (45 FTEs)",
+      "to": "AI-Ops Specialists (15 FTEs)",
+      "automation": "67%",
+      "timeline": "6 months",
+      "successMetric": "85% automation rate"
+    },
+    {
+      "from": "L2 Technical (35 FTEs)",
+      "to": "AI Collaboration Experts (25 FTEs)",
+      "evolution": "43%",
+      "timeline": "9 months",
+      "successMetric": "70% faster resolution"
+    },
+    {
+      "from": "L3 Specialists (15 FTEs)",
+      "to": "Strategic Architects (12 FTEs)",
+      "enhancement": "AI partnership",
+      "timeline": "12 months",
+      "successMetric": "90% proactive decisions"
+    }
+  ],
+  "newRoles": [
+    {
+      "title": "AI Operations Engineer",
+      "evolution": "L2 Technical Support → AI-Ops Specialist",
+      "salaryRange": "$95K - $140K",
+      "premium": "40% over traditional L2",
+      "skills": ["Python/R", "MLOps platforms", "Cloud AI services", "ML algorithms"],
+      "careerPath": "AI-Ops Specialist → Senior AI Engineer → AI Architecture Lead"
+    },
+    {
+      "title": "Intelligent Automation Specialist",
+      "salaryRange": "$75K - $110K",
+      "skills": ["RPA tools", "Process mining", "AI workflow design"],
+      "focus": "End-to-end process automation"
+    },
+    {
+      "title": "AI-Human Collaboration Engineer",
+      "salaryRange": "$110K - $160K",
+      "skills": ["Advanced troubleshooting", "AI model interaction", "Complex problem solving"],
+      "focus": "Human-AI partnership for complex issues"
+    },
+    {
+      "title": "AI Governance & Ethics Specialist",
+      "salaryRange": "$120K - $180K",
+      "skills": ["AI compliance", "Bias detection", "Model governance"],
+      "focus": "Responsible AI implementation"
+    }
+  ],
+  "trainingROI": {
+    "investment": 1500000,
+    "timeline": "18 months",
+    "annualReturn": 4600000,
+    "roi": "485% over 3 years",
+    "productivityGain": "150%"
+  },
+  "sources": [
+    "Glassdoor Salary Insights 2024",
+    "LinkedIn Workforce Analytics",
+    "Robert Half Technology Salary Guide",
+    "Industry benchmarking data"
+  ]
+}
