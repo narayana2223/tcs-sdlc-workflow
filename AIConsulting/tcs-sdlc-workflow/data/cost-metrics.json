@@ -25,7 +25,8 @@
       }
     ],
     "savingsVsTraditional": 0,
-    "efficiency": "44% faster than traditional"
+    "efficiency": "44% faster than traditional",
+    "roiPercentage": 0
   },
   "l4": {
     "dailySpend": 1247,
