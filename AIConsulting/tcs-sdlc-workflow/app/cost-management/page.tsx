@@ -12,6 +12,8 @@ export default function CostManagementPage() {
   const cost = costData[level];
   const budgetAlerts = costData.budgetAlerts;
   const optimization = costData.costOptimizationStrategies;
+  const costAttribution = costData.costAttribution;
+  const vendorNegotiations = costData.vendorNegotiations;
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -194,17 +196,17 @@ export default function CostManagementPage() {
         </div>
 
         {/* Cost Attribution */}
-        {cost.costAttribution && (
+        {costAttribution && (
           <div className="mb-8 grid grid-cols-2 gap-8">
             {/* By Team */}
-            {cost.costAttribution.byTeam && (
+            {costAttribution.byTeam && (
               <div className="rounded-lg bg-white p-6 shadow-sm">
                 <div className="mb-4 flex items-center justify-between">
                   <h2 className="text-xl font-bold text-gray-900">Cost by Team</h2>
                   <DataSourceBadge type="sample" tooltip="Sample cost attribution by team. Connect to actual usage tracking for real data." />
                 </div>
                 <div className="space-y-3">
-                  {Object.entries(cost.costAttribution.byTeam).map(([team, data]: [string, any]) => (
+                  {Object.entries(costAttribution.byTeam).map(([team, data]: [string, any]) => (
                     <div key={team} className="flex items-center justify-between">
                       <div className="flex items-center gap-3 flex-1">
                         <div className="capitalize font-medium text-gray-700">{team}</div>
@@ -225,14 +227,14 @@ export default function CostManagementPage() {
             )}
 
             {/* By Project */}
-            {cost.costAttribution.byProject && (
+            {costAttribution.byProject && (
               <div className="rounded-lg bg-white p-6 shadow-sm">
                 <div className="mb-4 flex items-center justify-between">
                   <h2 className="text-xl font-bold text-gray-900">Cost by Project</h2>
                   <DataSourceBadge type="sample" tooltip="Sample cost attribution by project. Connect to project tracking for real data." />
                 </div>
                 <div className="space-y-3">
-                  {Object.entries(cost.costAttribution.byProject).map(([project, data]: [string, any]) => (
+                  {Object.entries(costAttribution.byProject).map(([project, data]: [string, any]) => (
                     <div key={project} className="flex items-center justify-between">
                       <div className="flex items-center gap-3 flex-1">
                         <div className="capitalize font-medium text-gray-700">{project.replace(/_/g, ' ')}</div>
@@ -301,7 +303,7 @@ export default function CostManagementPage() {
         </div>
 
         {/* Vendor Negotiations */}
-        {cost.vendorNegotiations && (
+        {vendorNegotiations && (
           <div className="rounded-lg bg-white p-6 shadow-sm">
             <div className="mb-6 flex items-center justify-between">
               <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
@@ -312,7 +314,7 @@ export default function CostManagementPage() {
             </div>
 
             <div className="space-y-4">
-              {cost.vendorNegotiations.volumeDiscounts && Object.entries(cost.vendorNegotiations.volumeDiscounts).map(([vendor, data]: [string, any]) => (
+              {vendorNegotiations.volumeDiscounts && Object.entries(vendorNegotiations.volumeDiscounts).map(([vendor, data]: [string, any]) => (
                 <div key={vendor} className="border border-blue-200 bg-blue-50 rounded-lg p-4">
                   <div className="flex items-center justify-between mb-2">
                     <div className="font-semibold text-gray-900 capitalize">{vendor}</div>
@@ -332,14 +334,14 @@ export default function CostManagementPage() {
                 </div>
               ))}
 
-              {cost.vendorNegotiations.annualCommitments && (
+              {vendorNegotiations.annualCommitments && (
                 <div className="border border-green-200 bg-green-50 rounded-lg p-4">
                   <div className="flex items-center justify-between">
                     <div>
                       <div className="font-semibold text-gray-900">Annual Commitment Discounts</div>
-                      <div className="text-sm text-gray-700 mt-1">{cost.vendorNegotiations.annualCommitments.recommendation}</div>
+                      <div className="text-sm text-gray-700 mt-1">{vendorNegotiations.annualCommitments.recommendation}</div>
                     </div>
-                    <div className="text-xl font-bold text-green-600">{cost.vendorNegotiations.annualCommitments.estimatedSavings}</div>
+                    <div className="text-xl font-bold text-green-600">{vendorNegotiations.annualCommitments.estimatedSavings}</div>
                   </div>
                 </div>
               )}
