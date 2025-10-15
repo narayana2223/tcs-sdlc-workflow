@@ -1,0 +1,256 @@
+{
+  "securityLayers": {
+    "l3": {
+      "tools": [
+        {
+          "id": "manual-review",
+          "name": "Manual Security Review",
+          "type": "human",
+          "stage": "all",
+          "coverage": 60,
+          "avgTime": "5 days",
+          "vulnerabilitiesFound": 45,
+          "falsePositives": 12
+        }
+      ],
+      "metrics": {
+        "totalScans": 10,
+        "avgScanTime": "5 days",
+        "vulnerabilitiesDetected": 45,
+        "autoFixed": 0,
+        "manualReview": 45,
+        "complianceScore": 65
+      }
+    },
+    "l4": {
+      "tools": [
+        {
+          "id": "snyk",
+          "name": "Snyk",
+          "type": "vulnerability-scanning",
+          "stage": "code-review",
+          "coverage": 95,
+          "avgTime": "2 minutes",
+          "vulnerabilitiesFound": 38,
+          "autoFixed": 30,
+          "integration": "GitHub Actions"
+        },
+        {
+          "id": "gitguardian",
+          "name": "GitGuardian",
+          "type": "secrets-detection",
+          "stage": "pre-commit",
+          "coverage": 100,
+          "avgTime": "10 seconds",
+          "secretsDetected": 0,
+          "falsePositives": 0,
+          "integration": "Pre-commit hook"
+        },
+        {
+          "id": "semgrep",
+          "name": "Semgrep",
+          "type": "static-analysis",
+          "stage": "code-review",
+          "coverage": 90,
+          "avgTime": "1 minute",
+          "issuesFound": 15,
+          "autoFixed": 12,
+          "integration": "CI/CD Pipeline"
+        }
+      ],
+      "metrics": {
+        "totalScans": 240,
+        "avgScanTime": "3 minutes",
+        "vulnerabilitiesDetected": 38,
+        "autoFixed": 30,
+        "manualReview": 8,
+        "complianceScore": 92
+      }
+    },
+    "l5": {
+      "tools": [
+        {
+          "id": "snyk-advanced",
+          "name": "Snyk Advanced",
+          "type": "vulnerability-scanning",
+          "stage": "all",
+          "coverage": 100,
+          "avgTime": "30 seconds",
+          "vulnerabilitiesFound": 12,
+          "autoFixed": 12,
+          "aiPowered": true,
+          "integration": "Autonomous agent"
+        },
+        {
+          "id": "gitguardian-enterprise",
+          "name": "GitGuardian Enterprise",
+          "type": "secrets-detection",
+          "stage": "continuous",
+          "coverage": 100,
+          "avgTime": "real-time",
+          "secretsDetected": 0,
+          "autoRemediated": 0,
+          "integration": "All tools"
+        },
+        {
+          "id": "codeql",
+          "name": "CodeQL",
+          "type": "semantic-analysis",
+          "stage": "all",
+          "coverage": 100,
+          "avgTime": "45 seconds",
+          "issuesFound": 8,
+          "autoFixed": 8,
+          "aiPowered": true,
+          "integration": "GitHub Advanced Security"
+        },
+        {
+          "id": "prisma-cloud",
+          "name": "Prisma Cloud",
+          "type": "runtime-protection",
+          "stage": "deployment",
+          "coverage": 100,
+          "avgTime": "real-time",
+          "threatsBlocked": 156,
+          "integration": "Production environment"
+        }
+      ],
+      "metrics": {
+        "totalScans": 850,
+        "avgScanTime": "45 seconds",
+        "vulnerabilitiesDetected": 12,
+        "autoFixed": 12,
+        "manualReview": 0,
+        "complianceScore": 99
+      }
+    }
+  },
+  "complianceFrameworks": {
+    "soc2": {
+      "name": "SOC 2 Type II",
+      "requirements": [
+        "Access controls and authentication",
+        "Change management procedures",
+        "Risk assessment and mitigation",
+        "Incident response procedures",
+        "Continuous monitoring"
+      ],
+      "coverage": {
+        "l3": 60,
+        "l4": 90,
+        "l5": 100
+      }
+    },
+    "gdpr": {
+      "name": "GDPR",
+      "requirements": [
+        "Data privacy impact assessments",
+        "Right to deletion",
+        "Data minimization",
+        "Privacy by design",
+        "Breach notification"
+      ],
+      "coverage": {
+        "l3": 50,
+        "l4": 85,
+        "l5": 100
+      }
+    },
+    "hipaa": {
+      "name": "HIPAA",
+      "requirements": [
+        "Access controls",
+        "Audit logging",
+        "Data encryption",
+        "Incident response",
+        "Risk analysis"
+      ],
+      "coverage": {
+        "l3": 40,
+        "l4": 80,
+        "l5": 100
+      }
+    },
+    "iso27001": {
+      "name": "ISO 27001",
+      "requirements": [
+        "Information security policies",
+        "Asset management",
+        "Access control",
+        "Cryptography",
+        "Supplier relationships"
+      ],
+      "coverage": {
+        "l3": 55,
+        "l4": 88,
+        "l5": 100
+      }
+    }
+  },
+  "securityIncidents": {
+    "l3": {
+      "total": 8,
+      "critical": 2,
+      "high": 3,
+      "medium": 3,
+      "avgResolutionTime": "3 days",
+      "incidents": [
+        {
+          "type": "Hardcoded API key",
+          "severity": "critical",
+          "detectedBy": "Manual review",
+          "resolutionTime": "4 days"
+        },
+        {
+          "type": "SQL injection vulnerability",
+          "severity": "high",
+          "detectedBy": "Penetration test",
+          "resolutionTime": "2 days"
+        }
+      ]
+    },
+    "l4": {
+      "total": 3,
+      "critical": 0,
+      "high": 1,
+      "medium": 2,
+      "avgResolutionTime": "4 hours",
+      "incidents": [
+        {
+          "type": "Dependency vulnerability",
+          "severity": "high",
+          "detectedBy": "Snyk",
+          "resolutionTime": "2 hours",
+          "autoFixed": false
+        }
+      ]
+    },
+    "l5": {
+      "total": 0,
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "avgResolutionTime": "< 15 minutes",
+      "incidents": []
+    }
+  },
+  "threatIntelligence": {
+    "lastUpdated": "2025-10-15T10:30:00Z",
+    "sources": [
+      "NIST NVD",
+      "GitHub Advisory Database",
+      "Snyk Vulnerability DB",
+      "OWASP Top 10"
+    ],
+    "activeCVEs": 0,
+    "patchedCVEs": 156,
+    "emergingThreats": [
+      {
+        "name": "Supply chain attack via npm package",
+        "severity": "high",
+        "status": "monitored",
+        "mitigation": "Automated dependency scanning"
+      }
+    ]
+  }
+}

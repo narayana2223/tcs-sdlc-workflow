@@ -1,0 +1,122 @@
+{
+  "requirements": {
+    "title": "Requirements & Feedback Collection",
+    "l3": {
+      "diagram": "graph TB\n    A[Users] -->|Submit Feedback| B[Support Channels]\n    B -->|Raw Feedback| C{Nexoro AI}\n    C -->|Categorize| D[Category Tags]\n    C -->|Sentiment Analysis| E[Sentiment Scores]\n    C -->|Priority Scoring| F[Priority Levels]\n    D --> G[Feedback DB]\n    E --> G\n    F --> G\n    G -->|Human Review| H[PM Reviews]\n    H -->|Approved| I[Requirements Doc]\n    style C fill:#E94B3C,color:#fff\n    style H fill:#4A90E2,color:#fff",
+      "description": "Human reviews all categorized feedback before creating requirements"
+    },
+    "l4": {
+      "diagram": "graph TB\n    A[Users] -->|Submit Feedback| B[Support Channels]\n    B -->|Raw Feedback| C{Nexoro AI}\n    C -->|Auto-Categorize| D[Category Tags]\n    C -->|Sentiment Analysis| E[Sentiment Scores]\n    C -->|Priority Scoring 0-10| F[Priority Levels]\n    D --> G[Feedback DB]\n    E --> G\n    F --> G\n    G --> H{High Priority?<br/>Score > 7/10}\n    H -->|High Priority| I[Requirements Doc]\n    H -->|Low Priority| J[Backlog]\n    I -->|25% Sample Review| K[PM Spot Check]\n    style C fill:#E94B3C,color:#fff\n    style H fill:#E94B3C,color:#fff\n    style K fill:#4A90E2,color:#fff",
+      "description": "AI auto-filters high-priority feedback, PM spot-checks exceptions"
+    },
+    "l5": {
+      "diagram": "graph TB\n    A[Users] -->|Multi-Channel| B[Omni-Channel AI]\n    B -->|Real-time Stream| C{Nexoro AI Swarm}\n    C -->|Pattern Detection| D[Trend Analysis]\n    C -->|Sentiment + Impact| E[Business Impact Score]\n    C -->|Auto-Cluster| F[Feature Requests]\n    D --> G[Feedback DB]\n    E --> G\n    F --> G\n    G -->|ML Ranking| H{Auto-Requirements}\n    H -->|Generate| I[Requirements Doc]\n    I -->|Strategic Review Only| J[PM Oversight]\n    style C fill:#E94B3C,color:#fff\n    style H fill:#E94B3C,color:#fff\n    style J fill:#4A90E2,color:#fff",
+      "description": "AI swarm auto-generates requirements, PM provides strategic oversight only"
+    }
+  },
+  "planning": {
+    "title": "Planning & Architecture",
+    "l3": {
+      "diagram": "graph TB\n    A[Requirements] -->|Manual Review| B[PM & Architect]\n    B -->|Draft| C{Traycer AI}\n    C -->|Suggest Spec| D[High-Level Spec Draft]\n    B -->|Review & Edit| D\n    D -->|Human Approval| E[Approved Spec]\n    E -->|Manual Breakdown| F[PM Creates Stories]\n    F -->|Manual Design| G[Architecture Diagrams]\n    G --> H[Wiki/Jira]\n    style C fill:#E94B3C,color:#fff\n    style B fill:#4A90E2,color:#fff\n    style F fill:#4A90E2,color:#fff",
+      "description": "AI suggests specs, humans review and manually create all stories"
+    },
+    "l4": {
+      "diagram": "graph TB\n    A[Requirements] -->|Auto-Parse| B{Traycer AI}\n    B -->|Generate Spec| C[High-Level Spec]\n    B -->|Auto-Breakdown| D[Detailed Stories]\n    B -->|Architecture Patterns| E[Suggested Architecture]\n    C -->|PM Review| F{Approval Gate}\n    F -->|Approved| G[Wiki/Jira]\n    F -->|Changes Needed| H[PM Edits]\n    H --> B\n    D --> G\n    E -->|Human Validation| I[Architect Reviews]\n    I --> G\n    style B fill:#E94B3C,color:#fff\n    style F fill:#4A90E2,color:#fff\n    style I fill:#4A90E2,color:#fff",
+      "description": "AI generates specs and stories, human reviews for approval"
+    },
+    "l5": {
+      "diagram": "graph TB\n    A[Requirements] -->|Real-time| B{Traycer + Conductor}\n    B -->|Context Search| C[Exa RAG]\n    C -->|Past Patterns| B\n    B -->|Generate Spec| D[High-Level Spec]\n    B -->|Auto-Stories| E[Detailed Stories]\n    B -->|Generate Architecture| F[Architecture Diagrams]\n    D --> G[Wiki/Jira]\n    E --> G\n    F --> G\n    G -->|Strategic Review| H[PM Spot Check]\n    H -->|Auto-Approved 95%| I[Parallel Execution]\n    I --> J[Design Track]\n    I --> K[Dev Track]\n    I --> L[QA Track]\n    style B fill:#E94B3C,color:#fff\n    style C fill:#F5A623,color:#fff\n    style H fill:#4A90E2,color:#fff",
+      "description": "AI swarm auto-generates everything, PM spot-checks, 95% auto-approved"
+    }
+  },
+  "design": {
+    "title": "Design & Prototyping",
+    "l3": {
+      "diagram": "graph TB\n    A[Design Requirements] -->|Manual Design| B[UI Designer]\n    B -->|Use Figma AI| C{Figma}\n    C -->|Suggest Layouts| D[Design Drafts]\n    B -->|Manual Review| D\n    D -->|Human Approval| E[Final UI Assets]\n    E -->|Manual Code| F[UI Designer]\n    F -->|Hand-code| G[UI Components]\n    G --> H[GitHub]\n    style C fill:#E94B3C,color:#fff\n    style B fill:#4A90E2,color:#fff\n    style F fill:#4A90E2,color:#fff",
+      "description": "AI suggests layouts, designer manually creates all components"
+    },
+    "l4": {
+      "diagram": "graph TB\n    A[Design Requirements] -->|Brief| B{Figma AI}\n    B -->|Generate Layouts| C[Multiple Options]\n    C -->|Designer Selects| D[UI Designer]\n    D -->|Refine| E[Final Designs]\n    E -->|Export| F[UI Assets]\n    F -->|Auto-Generate| G{Lovable AI}\n    G -->|Create Code| H[React Components]\n    H -->|Review| I[Designer Validates]\n    I -->|70% Auto-Approved| J[GitHub]\n    I -->|30% Need Edits| K[Manual Fixes]\n    K --> J\n    style B fill:#E94B3C,color:#fff\n    style G fill:#E94B3C,color:#fff\n    style D fill:#4A90E2,color:#fff",
+      "description": "AI generates code from designs, 70% auto-approved"
+    },
+    "l5": {
+      "diagram": "graph TB\n    A[Design Requirements] -->|Auto-Generate| B{Figma AI + Lovable}\n    B -->|Design System| C[Component Library]\n    B -->|Generate Variants| D[Multiple Designs]\n    D -->|ML Selection| E{Best Design Picker}\n    E -->|Auto-Select| F[Winning Design]\n    F -->|Generate Code| G[Production Components]\n    G -->|Accessibility Check| H{Auto-Validation}\n    H -->|Pass| I[GitHub]\n    H -->|Fail| J[Auto-Fix]\n    J --> I\n    I -->|Designer Spot-Check| K[Strategic Review]\n    style B fill:#E94B3C,color:#fff\n    style E fill:#E94B3C,color:#fff\n    style H fill:#E94B3C,color:#fff\n    style K fill:#4A90E2,color:#fff",
+      "description": "AI swarm auto-designs, auto-codes, auto-validates, 95% autonomous"
+    }
+  },
+  "development": {
+    "title": "Development & Code Review",
+    "l3": {
+      "diagram": "graph TB\n    A[Stories] -->|Manual Coding| B[SW Engineer]\n    B -->|Use Cursor| C{Cursor IDE}\n    C -->|Suggest Code| D[Code Suggestions]\n    B -->|Review & Edit| D\n    D -->|Human Writes| E[Complete Code]\n    E -->|Create PR| F[Pull Request]\n    F -->|Peer Review| G[Senior Dev]\n    G -->|Manual Merge| H[GitHub]\n    style C fill:#E94B3C,color:#fff\n    style B fill:#4A90E2,color:#fff\n    style G fill:#4A90E2,color:#fff",
+      "description": "AI suggests code, engineer manually writes and reviews everything"
+    },
+    "l4": {
+      "diagram": "graph TB\n    A[Stories] -->|Assign| B[SW Engineer]\n    B -->|Collaborate| C{Cursor IDE}\n    C -->|RAG Context| D[Relace Index]\n    D --> C\n    C -->|Generate Code| E[Implementation]\n    C -->|Execute Tests| F[E2B Sandbox]\n    F -->|Results| C\n    E -->|Auto-Create PR| G[Pull Request]\n    G -->|AI Review| H{CodeRabbit}\n    H -->|Sourcegraph Context| I[Code Patterns]\n    I --> H\n    H -->|Score > 90| J[Auto-Merge 70%]\n    H -->|Score < 90| K[Human Review]\n    K --> L[GitHub]\n    J --> L\n    style C fill:#E94B3C,color:#fff\n    style H fill:#E94B3C,color:#fff\n    style D fill:#F5A623,color:#fff\n    style F fill:#F5A623,color:#fff\n    style B fill:#4A90E2,color:#fff",
+      "description": "AI codes and reviews, 70% auto-merged, engineer reviews exceptions"
+    },
+    "l5": {
+      "diagram": "graph TB\n    A[Stories] -->|Auto-Assign| B{Conductor Orchestrator}\n    B -->|Distribute| C[Devin Agent 1]\n    B -->|Distribute| D[Devin Agent 2]\n    C -->|Full Implementation| E[Feature Code]\n    D -->|Full Implementation| F[Feature Code]\n    E -->|Self-Test| G[E2B Sandbox]\n    F -->|Self-Test| G\n    G -->|Pass| H{Auto-PR}\n    H -->|Multi-Agent Review| I[CodeRabbit Swarm]\n    I -->|Consensus| J{Quality > 95}\n    J -->|Yes| K[Auto-Merge 95%]\n    J -->|No| L[Auto-Fix Attempt]\n    L -->|Fixed| K\n    L -->|Can't Fix| M[Escalate to Human]\n    K --> N[GitHub]\n    M -->|Strategic Review| O[Engineer]\n    O --> N\n    style C fill:#E94B3C,color:#fff\n    style D fill:#E94B3C,color:#fff\n    style I fill:#E94B3C,color:#fff\n    style B fill:#F5A623,color:#fff\n    style O fill:#4A90E2,color:#fff",
+      "description": "Multi-agent swarm codes, tests, reviews autonomously, 95% auto-merged"
+    }
+  },
+  "testing": {
+    "title": "Testing & QA",
+    "l3": {
+      "diagram": "graph TB\n    A[Test Requirements] -->|Manual Design| B[QA Engineer]\n    B -->|Write Tests| C[Test Cases]\n    C -->|Use QA Wolf| D{QA Wolf}\n    D -->|Suggest Tests| E[Additional Tests]\n    B -->|Review & Run| E\n    E -->|Execute| F[Test Results]\n    F -->|Human Analysis| G[QA Engineer]\n    G -->|Pass/Fail| H[Test Report]\n    H --> I[GitHub]\n    style D fill:#E94B3C,color:#fff\n    style B fill:#4A90E2,color:#fff\n    style G fill:#4A90E2,color:#fff",
+      "description": "AI suggests tests, QA manually writes and analyzes all results"
+    },
+    "l4": {
+      "diagram": "graph TB\n    A[Test Requirements] -->|Auto-Generate| B{QA Wolf}\n    B -->|Create Tests| C[Test Suite]\n    B -->|E2B Execution| D[BuildBuddy Cache]\n    C -->|Run Tests| E[E2B Sandbox]\n    D -->|Speed Up| E\n    E -->|Results| F{95% Pass Rate?}\n    F -->|Yes| G[Auto-Approve]\n    F -->|No| H[QA Review]\n    H -->|Fix Tests| I[QA Engineer]\n    I --> C\n    G --> J[GitHub]\n    style B fill:#E94B3C,color:#fff\n    style D fill:#F5A623,color:#fff\n    style E fill:#F5A623,color:#fff\n    style I fill:#4A90E2,color:#fff",
+      "description": "AI generates and runs tests, 95% pass rate auto-approved"
+    },
+    "l5": {
+      "diagram": "graph TB\n    A[Code Changes] -->|Auto-Detect| B{QA Wolf + Mabl}\n    B -->|Generate Tests| C[Unit Tests]\n    B -->|Generate Tests| D[Integration Tests]\n    B -->|Generate Tests| E[E2E Tests]\n    C --> F[BuildBuddy Parallel Execution]\n    D --> F\n    E --> F\n    F -->|Results| G{ML Analysis}\n    G -->|Pattern Detection| H[Flaky Test Detector]\n    H -->|Auto-Fix| I[Test Stabilization]\n    I --> F\n    G -->|98% Pass| J[Auto-Approve]\n    G -->|<98% Pass| K{Root Cause Analysis}\n    K -->|Code Issue| L[Auto-Fix Code]\n    K -->|Test Issue| M[Auto-Fix Test]\n    L --> N[Re-run]\n    M --> N\n    N -->|Pass| J\n    N -->|Still Fail| O[Escalate to QA]\n    J --> P[GitHub]\n    O --> Q[QA Spot Check]\n    Q --> P\n    style B fill:#E94B3C,color:#fff\n    style G fill:#E94B3C,color:#fff\n    style K fill:#E94B3C,color:#fff\n    style F fill:#F5A623,color:#fff\n    style Q fill:#4A90E2,color:#fff",
+      "description": "AI swarm auto-generates, executes, analyzes, and fixes tests autonomously"
+    }
+  },
+  "documentation": {
+    "title": "Documentation Generation",
+    "l3": {
+      "diagram": "graph TB\n    A[Code & APIs] -->|Manual Writing| B[Doc Editor]\n    B -->|Use AI Doc| C{AI Doc Assistant}\n    C -->|Suggest Content| D[Draft Docs]\n    B -->|Review & Edit| D\n    D -->|Human Approval| E[User Docs]\n    A -->|Manual Extraction| F[Doc Editor]\n    F -->|Document APIs| G[API Docs]\n    G --> H[Docs Portal]\n    E --> H\n    style C fill:#E94B3C,color:#fff\n    style B fill:#4A90E2,color:#fff\n    style F fill:#4A90E2,color:#fff",
+      "description": "AI suggests content, writer manually creates all documentation"
+    },
+    "l4": {
+      "diagram": "graph TB\n    A[GitHub Code] -->|Auto-Extract| B{Mintlify}\n    B -->|Sourcegraph Analysis| C[Code Patterns]\n    C --> B\n    B -->|Generate| D[API Docs]\n    A -->|Code + Tests| E{AI Doc}\n    E -->|Generate| F[User Guides]\n    E -->|Generate| G[Tutorials]\n    D --> H{Doc Editor Review}\n    F --> H\n    G --> H\n    H -->|89% Auto-Approved| I[Docs Portal]\n    H -->|11% Need Edits| J[Manual Polish]\n    J --> I\n    style B fill:#E94B3C,color:#fff\n    style E fill:#E94B3C,color:#fff\n    style C fill:#F5A623,color:#fff\n    style H fill:#4A90E2,color:#fff",
+      "description": "AI auto-generates docs from code, 89% auto-approved"
+    },
+    "l5": {
+      "diagram": "graph TB\n    A[GitHub] -->|Real-time Sync| B{Doc Swarm}\n    B -->|Extract APIs| C[Mintlify]\n    B -->|Generate Guides| D[AI Doc]\n    B -->|Compliance| E[Delive]\n    C -->|Auto-Publish| F[API Docs]\n    D -->|Auto-Publish| G[User Docs]\n    E -->|Auto-Publish| H[Compliance Docs]\n    F --> I{Quality Check}\n    G --> I\n    H --> I\n    I -->|Readability Score| J[ML Validator]\n    J -->|98% Pass| K[Docs Portal]\n    J -->|2% Issues| L[Auto-Improve]\n    L --> K\n    K -->|Strategic Review| M[Editor Spot Check]\n    style B fill:#E94B3C,color:#fff\n    style I fill:#E94B3C,color:#fff\n    style J fill:#E94B3C,color:#fff\n    style M fill:#4A90E2,color:#fff",
+      "description": "AI swarm auto-generates, validates, and publishes all docs, 98% autonomous"
+    }
+  },
+  "deployment": {
+    "title": "Deployment & CI/CD",
+    "l3": {
+      "diagram": "graph TB\n    A[GitHub] -->|Manual Trigger| B[DevOps]\n    B -->|Configure| C{Harness}\n    C -->|Build| D[Docker Image]\n    D -->|Manual Test| E[DevOps]\n    E -->|Approve| F[Deploy to Staging]\n    F -->|Manual Test| G[QA Team]\n    G -->|Sign-off| H[DevOps]\n    H -->|Deploy| I[Production]\n    style C fill:#E94B3C,color:#fff\n    style B fill:#4A90E2,color:#fff\n    style E fill:#4A90E2,color:#fff\n    style H fill:#4A90E2,color:#fff",
+      "description": "AI assists build, humans manually test and approve all deployments"
+    },
+    "l4": {
+      "diagram": "graph TB\n    A[GitHub Merge] -->|Auto-Trigger| B{Harness CI/CD}\n    B -->|BuildBuddy| C[Cached Build]\n    B -->|Depot| D[Container Image]\n    C --> D\n    D -->|Auto-Deploy| E[Staging]\n    E -->|Automated Tests| F[E2E Test Suite]\n    F -->|Pass| G{Auto-Promote}\n    G -->|Low Risk| H[Production 89%]\n    G -->|High Risk| I[DevOps Approval]\n    I --> J[Production]\n    H --> J\n    style B fill:#E94B3C,color:#fff\n    style C fill:#F5A623,color:#fff\n    style D fill:#F5A623,color:#fff\n    style G fill:#E94B3C,color:#fff\n    style I fill:#4A90E2,color:#fff",
+      "description": "AI auto-deploys low-risk changes (89%), DevOps approves high-risk"
+    },
+    "l5": {
+      "diagram": "graph TB\n    A[GitHub] -->|Continuous| B{Harness + Conductor}\n    B -->|Parallel Builds| C[BuildBuddy Multi-Region]\n    B -->|Container Optimization| D[Depot Smart Cache]\n    C --> E[Staging]\n    D --> E\n    E -->|Canary Deploy| F{AI Traffic Monitor}\n    F -->|Monitor Metrics| G[Real-time Analysis]\n    G -->|Success| H[Auto-Promote 98%]\n    G -->|Anomaly| I[Auto-Rollback]\n    I -->|Root Cause| J{AI Debugger}\n    J -->|Fix Available| K[Auto-Fix & Redeploy]\n    J -->|Complex Issue| L[DevOps Alert]\n    H --> M[Production]\n    K --> E\n    L --> N[DevOps Strategic Review]\n    style B fill:#E94B3C,color:#fff\n    style F fill:#E94B3C,color:#fff\n    style J fill:#E94B3C,color:#fff\n    style C fill:#F5A623,color:#fff\n    style N fill:#4A90E2,color:#fff",
+      "description": "AI auto-deploys, monitors, and fixes issues, 98% autonomous"
+    }
+  },
+  "operations": {
+    "title": "Operations & Monitoring",
+    "l3": {
+      "diagram": "graph TB\n    A[Production] -->|Manual Monitoring| B[SRE Team]\n    B -->|Use Dashboards| C[Metrics]\n    C -->|Alert| D{Incident?}\n    D -->|Yes| E[SRE Investigates]\n    E -->|Manual Debug| F[Find Root Cause]\n    F -->|Manual Fix| G[Deploy Fix]\n    G -->|Test| H[SRE Validates]\n    H -->|Document| I[Incident Report]\n    D -->|No| J[Continue Monitoring]\n    style B fill:#4A90E2,color:#fff\n    style E fill:#4A90E2,color:#fff\n    style H fill:#4A90E2,color:#fff",
+      "description": "SRE manually monitors, debugs, and fixes all incidents (20-25 min MTTR)"
+    },
+    "l4": {
+      "diagram": "graph TB\n    A[Production] -->|Auto-Monitor| B{Resolve.ai}\n    B -->|Exa Log Search| C[Pattern Detection]\n    C --> B\n    B -->|Anomaly| D{Incident Classification}\n    D -->|Known Pattern| E[Auto-Remediate]\n    D -->|Unknown| F[Alert SRE]\n    E -->|Execute Fix| G[Auto-Deploy Fix]\n    G -->|Verify| H{Success?}\n    H -->|Yes| I[Metrics DB 80%]\n    H -->|No| F\n    F -->|Manual Fix| J[SRE Team]\n    J --> K[Deploy Fix]\n    K --> I\n    style B fill:#E94B3C,color:#fff\n    style D fill:#E94B3C,color:#fff\n    style C fill:#F5A623,color:#fff\n    style J fill:#4A90E2,color:#fff",
+      "description": "AI auto-remediates 80% of incidents, SRE handles complex issues (5-8 min MTTR)"
+    },
+    "l5": {
+      "diagram": "graph TB\n    A[Production] -->|Real-time Stream| B{Resolve.ai + SRE.ai}\n    B -->|Predictive ML| C[Anomaly Prediction]\n    C -->|Prevent Issue| D[Proactive Fix]\n    D --> E[Auto-Deploy]\n    B -->|Incident Detected| F{Multi-Agent Analysis}\n    F -->|Root Cause| G[AI Debugger]\n    G -->|Known Pattern| H[Auto-Fix Library]\n    G -->|New Pattern| I[Generate Fix]\n    H --> J[Auto-Deploy Fix]\n    I -->|Test Fix| K[E2B Sandbox]\n    K -->|Validated| J\n    J -->|Verify| L{Success Rate}\n    L -->|95% Success| M[Metrics DB]\n    L -->|5% Fail| N[Escalate]\n    N -->|Strategic Review| O[SRE Team]\n    O -->|Complex Fix| P[Manual Resolution]\n    P --> M\n    style B fill:#E94B3C,color:#fff\n    style F fill:#E94B3C,color:#fff\n    style G fill:#E94B3C,color:#fff\n    style O fill:#4A90E2,color:#fff",
+      "description": "AI predicts and prevents issues, auto-remediates 95%, SRE provides strategic oversight (1-2 min MTTR)"
+    }
+  }
+}

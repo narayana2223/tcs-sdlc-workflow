@@ -1,0 +1,373 @@
+{
+  "l3": {
+    "dailySpend": 234,
+    "monthlyForecast": 7020,
+    "annualProjection": 84240,
+    "costPerDeveloper": 18,
+    "costPerDeployment": 156,
+    "costPerStage": {
+      "requirements": 20,
+      "design": 25,
+      "development": 85,
+      "codeReview": 45,
+      "testing": 30,
+      "documentation": 15,
+      "deployment": 14
+    },
+    "toolCosts": [
+      {
+        "tool": "Manual Labor",
+        "category": "human",
+        "dailyCost": 234,
+        "monthlyCost": 7020,
+        "usage": "Full team",
+        "roi": "Baseline"
+      }
+    ],
+    "savingsVsTraditional": 0,
+    "efficiency": "44% faster than traditional"
+  },
+  "l4": {
+    "dailySpend": 1247,
+    "monthlyForecast": 37410,
+    "annualProjection": 448920,
+    "costPerDeveloper": 156,
+    "costPerDeployment": 89,
+    "costPerStage": {
+      "requirements": 85,
+      "design": 95,
+      "development": 520,
+      "codeReview": 180,
+      "testing": 210,
+      "documentation": 90,
+      "deployment": 67
+    },
+    "toolCosts": [
+      {
+        "tool": "Cursor",
+        "category": "ai-application",
+        "dailyCost": 320,
+        "monthlyCost": 9600,
+        "usage": "45,000 tokens/day",
+        "pricePerSeat": 20,
+        "seats": 16,
+        "roi": "40% time saved"
+      },
+      {
+        "tool": "CodeRabbit",
+        "category": "ai-application",
+        "dailyCost": 120,
+        "monthlyCost": 3600,
+        "usage": "240 PRs/month",
+        "pricePerSeat": 15,
+        "seats": 8,
+        "roi": "50% review time saved"
+      },
+      {
+        "tool": "QA Wolf",
+        "category": "ai-application",
+        "dailyCost": 127,
+        "monthlyCost": 3810,
+        "usage": "850 tests/day",
+        "pricingModel": "per test",
+        "roi": "70% test creation time saved"
+      },
+      {
+        "tool": "Mintlify",
+        "category": "ai-application",
+        "dailyCost": 45,
+        "monthlyCost": 1350,
+        "usage": "API docs generation",
+        "pricePerSeat": 45,
+        "seats": 1,
+        "roi": "80% doc time saved"
+      },
+      {
+        "tool": "Harness",
+        "category": "ci-cd",
+        "dailyCost": 67,
+        "monthlyCost": 2010,
+        "usage": "50 deploys/week",
+        "pricingModel": "per deployment",
+        "roi": "60% deployment time saved"
+      },
+      {
+        "tool": "e2b Sandbox",
+        "category": "infrastructure",
+        "dailyCost": 125,
+        "monthlyCost": 3750,
+        "usage": "250 hours/month",
+        "pricingModel": "$0.50/hour",
+        "roi": "10x faster execution"
+      },
+      {
+        "tool": "Sourcegraph",
+        "category": "infrastructure",
+        "dailyCost": 165,
+        "monthlyCost": 4950,
+        "usage": "50 developers",
+        "pricePerSeat": 99,
+        "seats": 1.66,
+        "roi": "Enables AI tools"
+      },
+      {
+        "tool": "BuildBuddy",
+        "category": "infrastructure",
+        "dailyCost": 78,
+        "monthlyCost": 2340,
+        "usage": "Build optimization",
+        "pricingModel": "per build minute",
+        "roi": "3x faster builds"
+      },
+      {
+        "tool": "Reduced Manual Labor",
+        "category": "savings",
+        "dailyCost": -1400,
+        "monthlyCost": -42000,
+        "usage": "67% reduction in manual work",
+        "roi": "Primary savings source"
+      }
+    ],
+    "savingsVsTraditional": 4200000,
+    "efficiency": "67% faster than traditional",
+    "roiPercentage": 3500
+  },
+  "l5": {
+    "dailySpend": 2156,
+    "monthlyForecast": 64680,
+    "annualProjection": 776160,
+    "costPerDeveloper": 270,
+    "costPerDeployment": 38,
+    "costPerStage": {
+      "requirements": 145,
+      "design": 180,
+      "development": 1050,
+      "codeReview": 95,
+      "testing": 380,
+      "documentation": 120,
+      "deployment": 186
+    },
+    "toolCosts": [
+      {
+        "tool": "Devin",
+        "category": "ai-application",
+        "dailyCost": 680,
+        "monthlyCost": 20400,
+        "usage": "8 autonomous agents",
+        "pricePerAgent": 500,
+        "agents": 1.36,
+        "roi": "60% faster implementation"
+      },
+      {
+        "tool": "Cursor",
+        "category": "ai-application",
+        "dailyCost": 160,
+        "monthlyCost": 4800,
+        "usage": "25,000 tokens/day (reduced)",
+        "pricePerSeat": 20,
+        "seats": 8,
+        "roi": "Works with Devin swarm"
+      },
+      {
+        "tool": "CodeRabbit Advanced",
+        "category": "ai-application",
+        "dailyCost": 95,
+        "monthlyCost": 2850,
+        "usage": "95% auto-merge",
+        "pricePerSeat": 15,
+        "seats": 6.33,
+        "roi": "95% automation"
+      },
+      {
+        "tool": "QA Wolf + Mabl",
+        "category": "ai-application",
+        "dailyCost": 285,
+        "monthlyCost": 8550,
+        "usage": "1500 tests/day autonomous",
+        "pricingModel": "enterprise",
+        "roi": "Full test automation"
+      },
+      {
+        "tool": "Lovable",
+        "category": "ai-application",
+        "dailyCost": 95,
+        "monthlyCost": 2850,
+        "usage": "UI prototype to code",
+        "pricingModel": "per project",
+        "roi": "70% design time saved"
+      },
+      {
+        "tool": "Conductor",
+        "category": "orchestration",
+        "dailyCost": 145,
+        "monthlyCost": 4350,
+        "usage": "Agent orchestration",
+        "pricingModel": "enterprise",
+        "roi": "Enables L5 automation"
+      },
+      {
+        "tool": "e2b Sandbox Advanced",
+        "category": "infrastructure",
+        "dailyCost": 285,
+        "monthlyCost": 8550,
+        "usage": "800 hours/month",
+        "pricingModel": "$0.35/hour (volume)",
+        "roi": "24/7 autonomous execution"
+      },
+      {
+        "tool": "Vector DB (Pinecone)",
+        "category": "infrastructure",
+        "dailyCost": 67,
+        "monthlyCost": 2010,
+        "usage": "RAG for context",
+        "pricingModel": "per query",
+        "roi": "Enables smart AI decisions"
+      },
+      {
+        "tool": "Sourcegraph Enterprise",
+        "category": "infrastructure",
+        "dailyCost": 165,
+        "monthlyCost": 4950,
+        "usage": "Organization-wide",
+        "pricePerSeat": 99,
+        "seats": 1.66,
+        "roi": "Powers all AI tools"
+      },
+      {
+        "tool": "BuildBuddy Pro",
+        "category": "infrastructure",
+        "dailyCost": 125,
+        "monthlyCost": 3750,
+        "usage": "Optimized builds",
+        "pricingModel": "enterprise",
+        "roi": "5x faster builds"
+      },
+      {
+        "tool": "Reduced Manual Labor",
+        "category": "savings",
+        "dailyCost": -2650,
+        "monthlyCost": -79500,
+        "usage": "87% reduction in manual work",
+        "roi": "Primary savings source"
+      }
+    ],
+    "savingsVsTraditional": 7200000,
+    "efficiency": "87% faster than traditional",
+    "roiPercentage": 4500
+  },
+  "costOptimizationStrategies": {
+    "multiModelRouting": {
+      "enabled": true,
+      "strategy": "Route simple tasks to cheaper models, complex to premium",
+      "models": {
+        "simple": {
+          "name": "GPT-3.5 / Claude Haiku",
+          "costPerToken": 0.0005,
+          "useCases": ["Code completion", "Simple refactoring"]
+        },
+        "complex": {
+          "name": "GPT-4 / Claude Opus",
+          "costPerToken": 0.03,
+          "useCases": ["Architecture decisions", "Complex debugging"]
+        }
+      },
+      "savingsPotential": "30-40% cost reduction"
+    },
+    "caching": {
+      "enabled": true,
+      "strategy": "Cache common prompts and responses",
+      "hitRate": 65,
+      "savingsPotential": "20% cost reduction"
+    },
+    "batchProcessing": {
+      "enabled": true,
+      "strategy": "Batch non-urgent AI requests",
+      "savingsPotential": "15% cost reduction"
+    }
+  },
+  "budgetAlerts": {
+    "daily": {
+      "threshold": 2500,
+      "currentSpend": 2156,
+      "status": "healthy",
+      "alertRecipients": ["cfo@company.com", "cto@company.com"]
+    },
+    "monthly": {
+      "threshold": 70000,
+      "currentProjection": 64680,
+      "status": "healthy",
+      "alertRecipients": ["cfo@company.com", "cto@company.com"]
+    },
+    "anomalyDetection": {
+      "enabled": true,
+      "threshold": "20% above average",
+      "lastAnomaly": null
+    }
+  },
+  "historicalTrends": {
+    "lastWeek": {
+      "avgDailySpend": 2089,
+      "trend": "up 3%"
+    },
+    "lastMonth": {
+      "totalSpend": 61340,
+      "trend": "stable"
+    },
+    "lastQuarter": {
+      "totalSpend": 178920,
+      "trend": "up 15% (new tools adopted)"
+    }
+  },
+  "costAttribution": {
+    "byTeam": {
+      "frontend": {
+        "daily": 645,
+        "percentage": 30
+      },
+      "backend": {
+        "daily": 860,
+        "percentage": 40
+      },
+      "qa": {
+        "daily": 430,
+        "percentage": 20
+      },
+      "devops": {
+        "daily": 221,
+        "percentage": 10
+      }
+    },
+    "byProject": {
+      "project_alpha": {
+        "daily": 970,
+        "percentage": 45
+      },
+      "project_beta": {
+        "daily": 755,
+        "percentage": 35
+      },
+      "maintenance": {
+        "daily": 431,
+        "percentage": 20
+      }
+    }
+  },
+  "vendorNegotiations": {
+    "volumeDiscounts": {
+      "cursor": {
+        "currentSeats": 16,
+        "nextTierAt": 25,
+        "potentialSavings": "15% ($1440/year)"
+      },
+      "devin": {
+        "currentAgents": 1.36,
+        "negotiatedRate": "500/month",
+        "potentialSavings": "Ask about annual commitment discount"
+      }
+    },
+    "annualCommitments": {
+      "estimatedSavings": "20-25% across all tools",
+      "recommendation": "Consider annual billing for stable tools"
+    }
+  }
+}

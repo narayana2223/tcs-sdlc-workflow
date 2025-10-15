@@ -1,0 +1,389 @@
+{
+  "input": {
+    "id": "input",
+    "title": "INPUT",
+    "subtitle": "User Feedback Collection",
+    "order": 1,
+    "width": 280,
+    "actors": [
+      {
+        "role": "Users",
+        "icon": "👥",
+        "responsibilities": [
+          "Submit feedback via support",
+          "Participate in surveys",
+          "Report issues"
+        ]
+      }
+    ],
+    "aiApplications": ["nexoro"],
+    "infrastructureTools": [],
+    "dataStores": [
+      {
+        "name": "Customer Feedback DB",
+        "type": "database",
+        "artifacts": [
+          "Categorized feedback",
+          "Sentiment analysis",
+          "Priority scores"
+        ]
+      }
+    ],
+    "workflow": {
+      "simple": "Users → Nexoro → Feedback DB",
+      "connections": [
+        { "from": "users", "to": "nexoro", "label": "Submit feedback" },
+        { "from": "nexoro", "to": "feedback-db", "label": "Store analyzed" }
+      ]
+    },
+    "metrics": {
+      "l3": {
+        "duration": "Continuous",
+        "humanTouchpoints": 1,
+        "timeSaved": "30%"
+      },
+      "l4": {
+        "duration": "Continuous",
+        "humanTouchpoints": 0,
+        "timeSaved": "60%"
+      },
+      "l5": {
+        "duration": "Continuous",
+        "humanTouchpoints": 0,
+        "timeSaved": "80%"
+      }
+    },
+    "roi": {
+      "annualSavings": 150000,
+      "teamSize": 50,
+      "costReduction": "60%"
+    }
+  },
+  "plan-spec": {
+    "id": "plan-spec",
+    "title": "PLAN & SPEC",
+    "subtitle": "Phase 1: Requirements & Planning",
+    "order": 2,
+    "width": 300,
+    "actors": [
+      {
+        "role": "PM & Architect",
+        "icon": "👤",
+        "responsibilities": [
+          "Define business requirements",
+          "Review generated specs",
+          "Approve architecture"
+        ]
+      }
+    ],
+    "aiApplications": ["deity", "traycer", "jira-ai"],
+    "infrastructureTools": ["exa", "tavily"],
+    "dataStores": [
+      {
+        "name": "Wiki/Jira",
+        "type": "sor",
+        "artifacts": [
+          "High-level spec",
+          "Detailed stories",
+          "Architecture diagrams"
+        ]
+      }
+    ],
+    "workflow": {
+      "simple": "PM → deity (exa RAG) → Traycer → Jira AI → Wiki/Jira",
+      "connections": [
+        { "from": "pm", "to": "deity", "label": "Requirements" },
+        { "from": "deity", "to": "exa", "label": "Search specs" },
+        { "from": "exa", "to": "deity", "label": "Context" },
+        { "from": "deity", "to": "traycer", "label": "Draft spec" },
+        { "from": "traycer", "to": "jira-ai", "label": "Refined spec" },
+        { "from": "jira-ai", "to": "wiki", "label": "Stories" }
+      ]
+    },
+    "metrics": {
+      "l3": {
+        "duration": "2 weeks",
+        "humanTouchpoints": 8,
+        "timeSaved": "50%"
+      },
+      "l4": {
+        "duration": "1 week",
+        "humanTouchpoints": 2,
+        "timeSaved": "75%"
+      },
+      "l5": {
+        "duration": "2 days",
+        "humanTouchpoints": 1,
+        "timeSaved": "93%"
+      }
+    },
+    "roi": {
+      "annualSavings": 800000,
+      "teamSize": 50,
+      "costReduction": "75%"
+    }
+  },
+  "design-build": {
+    "id": "design-build",
+    "title": "DESIGN & BUILD",
+    "subtitle": "Phase 2 (Design) + Phase 3 (Development)",
+    "order": 3,
+    "width": 320,
+    "actors": [
+      {
+        "role": "SW Engineer",
+        "icon": "👤",
+        "responsibilities": [
+          "Write business logic",
+          "Review AI suggestions",
+          "Approve PRs (L3/L4 only)"
+        ]
+      }
+    ],
+    "aiApplications": ["cursor", "devin", "coderabbit"],
+    "infrastructureTools": ["relace", "e2b", "sourcegraph"],
+    "dataStores": [
+      {
+        "name": "GitHub",
+        "type": "sor",
+        "artifacts": [
+          "Code repository",
+          "PR history (70% auto-merged in L4)",
+          "Test results"
+        ]
+      }
+    ],
+    "workflow": {
+      "simple": "Engineer → Cursor/Devin (Relace+E2B) → CodeRabbit (Sourcegraph) → GitHub",
+      "connections": [
+        { "from": "engineer", "to": "cursor", "label": "Write code" },
+        { "from": "cursor", "to": "relace", "label": "Code index" },
+        { "from": "relace", "to": "cursor", "label": "Context" },
+        { "from": "cursor", "to": "e2b", "label": "Execute" },
+        { "from": "e2b", "to": "cursor", "label": "Results" },
+        { "from": "cursor", "to": "github", "label": "Commit" },
+        { "from": "github", "to": "coderabbit", "label": "PR" },
+        { "from": "coderabbit", "to": "sourcegraph", "label": "Analyze" },
+        { "from": "coderabbit", "to": "github", "label": "Review/Merge" }
+      ]
+    },
+    "metrics": {
+      "l3": {
+        "duration": "6.5 weeks",
+        "humanTouchpoints": 9,
+        "timeSaved": "46%"
+      },
+      "l4": {
+        "duration": "4 weeks",
+        "humanTouchpoints": 3,
+        "timeSaved": "67%",
+        "autoMergeRate": "70%"
+      },
+      "l5": {
+        "duration": "1.5 weeks",
+        "humanTouchpoints": 0,
+        "timeSaved": "87%",
+        "autoMergeRate": "95%"
+      }
+    },
+    "roi": {
+      "annualSavings": 2400000,
+      "teamSize": 50,
+      "costReduction": "67%"
+    }
+  },
+  "test-review": {
+    "id": "test-review",
+    "title": "TEST & REVIEW",
+    "subtitle": "Phase 4: Testing & QA",
+    "order": 4,
+    "width": 300,
+    "actors": [
+      {
+        "role": "QA Engineer",
+        "icon": "👤",
+        "responsibilities": [
+          "Define test strategy",
+          "Review test coverage",
+          "Validate results"
+        ]
+      }
+    ],
+    "aiApplications": ["qa-wolf", "mabl", "testrigor"],
+    "infrastructureTools": ["e2b", "relace"],
+    "dataStores": [
+      {
+        "name": "Test Results DB",
+        "type": "database",
+        "artifacts": [
+          "Test cases",
+          "Execution results (95% pass rate)",
+          "Coverage reports"
+        ]
+      }
+    ],
+    "workflow": {
+      "simple": "QA → QA WOLF/Mabl (E2B) → Test DB → GitHub",
+      "connections": [
+        { "from": "qa", "to": "qa-wolf", "label": "Test strategy" },
+        { "from": "qa-wolf", "to": "e2b", "label": "Execute tests" },
+        { "from": "e2b", "to": "qa-wolf", "label": "Results" },
+        { "from": "qa-wolf", "to": "test-db", "label": "Store results" },
+        { "from": "test-db", "to": "github", "label": "Update PR" }
+      ]
+    },
+    "metrics": {
+      "l3": {
+        "duration": "2.5 weeks",
+        "humanTouchpoints": 9,
+        "timeSaved": "37%"
+      },
+      "l4": {
+        "duration": "1 week",
+        "humanTouchpoints": 3,
+        "timeSaved": "75%",
+        "autoMergeRate": "95%"
+      },
+      "l5": {
+        "duration": "2 days",
+        "humanTouchpoints": 0,
+        "timeSaved": "93%",
+        "autoMergeRate": "98%"
+      }
+    },
+    "roi": {
+      "annualSavings": 1200000,
+      "teamSize": 50,
+      "costReduction": "75%"
+    }
+  },
+  "document-deploy": {
+    "id": "document-deploy",
+    "title": "DOCUMENT & DEPLOY",
+    "subtitle": "Phase 5 (Docs) + Phase 6 (Deployment)",
+    "order": 5,
+    "width": 310,
+    "actors": [
+      {
+        "role": "DevOps Lead",
+        "icon": "👤",
+        "responsibilities": [
+          "Review deployment strategy",
+          "Approve high-risk deployments",
+          "Monitor production"
+        ]
+      }
+    ],
+    "aiApplications": ["mintlify", "harness", "pulumi"],
+    "infrastructureTools": ["sourcegraph", "buildbuddy", "depot"],
+    "dataStores": [
+      {
+        "name": "Docs Portal + Cloud Infra",
+        "type": "sor",
+        "artifacts": [
+          "API docs (100% coverage)",
+          "User guides",
+          "Production infrastructure"
+        ]
+      }
+    ],
+    "workflow": {
+      "simple": "Mintlify (Sourcegraph) → Docs + Harness (BuildBuddy+depot) → Cloud",
+      "connections": [
+        { "from": "mintlify", "to": "sourcegraph", "label": "Extract APIs" },
+        { "from": "sourcegraph", "to": "mintlify", "label": "API data" },
+        { "from": "mintlify", "to": "docs", "label": "Publish" },
+        { "from": "harness", "to": "buildbuddy", "label": "Build" },
+        { "from": "buildbuddy", "to": "depot", "label": "Container" },
+        { "from": "depot", "to": "cloud", "label": "Deploy" }
+      ]
+    },
+    "metrics": {
+      "l3": {
+        "duration": "1.5 days",
+        "humanTouchpoints": 3,
+        "timeSaved": "50%"
+      },
+      "l4": {
+        "duration": "4 hours",
+        "humanTouchpoints": 2,
+        "timeSaved": "89%"
+      },
+      "l5": {
+        "duration": "30 min",
+        "humanTouchpoints": 1,
+        "timeSaved": "98%"
+      }
+    },
+    "roi": {
+      "annualSavings": 600000,
+      "teamSize": 50,
+      "costReduction": "89%"
+    }
+  },
+  "operate-optimize": {
+    "id": "operate-optimize",
+    "title": "OPERATE & OPTIMIZE",
+    "subtitle": "Phase 7: Monitoring & Maintenance",
+    "order": 6,
+    "width": 300,
+    "actors": [
+      {
+        "role": "SRE Team",
+        "icon": "👤",
+        "responsibilities": [
+          "Monitor production",
+          "Handle critical incidents",
+          "Review optimization recommendations"
+        ]
+      }
+    ],
+    "aiApplications": ["resolve-ai", "sre-ai"],
+    "infrastructureTools": ["exa", "conductor"],
+    "dataStores": [
+      {
+        "name": "Metrics & Logs DB",
+        "type": "database",
+        "artifacts": [
+          "Application metrics",
+          "System logs",
+          "Incident history (80% auto-remediated)"
+        ]
+      }
+    ],
+    "workflow": {
+      "simple": "Resolve.ai (exa) → Auto-remediate → SRE.ai → Optimize",
+      "connections": [
+        { "from": "resolve-ai", "to": "exa", "label": "Log search" },
+        { "from": "exa", "to": "resolve-ai", "label": "Patterns" },
+        { "from": "resolve-ai", "to": "metrics-db", "label": "Remediate" },
+        { "from": "metrics-db", "to": "sre-ai", "label": "Analyze" },
+        { "from": "sre-ai", "to": "cloud", "label": "Optimize" }
+      ]
+    },
+    "metrics": {
+      "l3": {
+        "duration": "20-25 min MTTR",
+        "humanTouchpoints": 11,
+        "timeSaved": "55%"
+      },
+      "l4": {
+        "duration": "5-8 min MTTR",
+        "humanTouchpoints": 3,
+        "timeSaved": "87%",
+        "autoMergeRate": "80%"
+      },
+      "l5": {
+        "duration": "1-2 min MTTR",
+        "humanTouchpoints": 1,
+        "timeSaved": "97%",
+        "autoMergeRate": "95%"
+      }
+    },
+    "roi": {
+      "annualSavings": 1800000,
+      "teamSize": 50,
+      "costReduction": "87%"
+    }
+  }
+}

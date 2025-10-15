@@ -1,0 +1,314 @@
+{
+  "approvalGates": {
+    "l3": {
+      "totalGates": 95,
+      "categories": {
+        "requirements": 15,
+        "design": 12,
+        "development": 35,
+        "codeReview": 15,
+        "testing": 10,
+        "deployment": 8
+      },
+      "gates": [
+        {
+          "id": "req-001",
+          "stage": "requirements",
+          "name": "Requirements Sign-off",
+          "trigger": "all",
+          "approver": "PM & Architect",
+          "sla": "2 days",
+          "autoApprove": false
+        },
+        {
+          "id": "dev-001",
+          "stage": "development",
+          "name": "Code Quality Check",
+          "trigger": "every_pr",
+          "approver": "Senior Developer",
+          "sla": "4 hours",
+          "autoApprove": false
+        },
+        {
+          "id": "sec-001",
+          "stage": "codeReview",
+          "name": "Security Review",
+          "trigger": "all",
+          "approver": "Security Team",
+          "sla": "1 day",
+          "autoApprove": false
+        }
+      ]
+    },
+    "l4": {
+      "totalGates": 25,
+      "categories": {
+        "requirements": 3,
+        "design": 2,
+        "development": 8,
+        "codeReview": 5,
+        "testing": 3,
+        "deployment": 4
+      },
+      "gates": [
+        {
+          "id": "req-001",
+          "stage": "requirements",
+          "name": "High-Level Requirements",
+          "trigger": "new_feature",
+          "approver": "PM",
+          "sla": "4 hours",
+          "autoApprove": false,
+          "aiAssisted": true
+        },
+        {
+          "id": "dev-001",
+          "stage": "development",
+          "name": "PR Approval",
+          "trigger": "ai_confidence_below_85",
+          "approver": "Developer",
+          "sla": "30 minutes",
+          "autoApprove": true,
+          "autoApproveThreshold": 85
+        },
+        {
+          "id": "sec-001",
+          "stage": "codeReview",
+          "name": "Security Exception Review",
+          "trigger": "high_severity_vuln",
+          "approver": "Security Team",
+          "sla": "2 hours",
+          "autoApprove": false
+        }
+      ]
+    },
+    "l5": {
+      "totalGates": 8,
+      "categories": {
+        "requirements": 1,
+        "design": 0,
+        "development": 2,
+        "codeReview": 1,
+        "testing": 1,
+        "deployment": 3
+      },
+      "gates": [
+        {
+          "id": "req-001",
+          "stage": "requirements",
+          "name": "Strategic Feature Approval",
+          "trigger": "major_feature",
+          "approver": "CTO",
+          "sla": "2 hours",
+          "autoApprove": false,
+          "aiAssisted": true
+        },
+        {
+          "id": "dev-001",
+          "stage": "development",
+          "name": "Architectural Change Review",
+          "trigger": "architecture_change",
+          "approver": "Architect",
+          "sla": "1 hour",
+          "autoApprove": false
+        },
+        {
+          "id": "deploy-001",
+          "stage": "deployment",
+          "name": "Production Deployment",
+          "trigger": "deploy_to_prod",
+          "approver": "DevOps Lead",
+          "sla": "15 minutes",
+          "autoApprove": true,
+          "autoApproveThreshold": 95
+        }
+      ]
+    }
+  },
+  "aiDecisionFramework": {
+    "confidenceThresholds": {
+      "autoApprove": 85,
+      "humanReview": 50,
+      "reject": 30
+    },
+    "escalationPaths": {
+      "low_confidence": {
+        "threshold": 50,
+        "action": "escalate",
+        "escalateTo": "senior_developer",
+        "sla": "30 minutes"
+      },
+      "security_risk": {
+        "threshold": "any",
+        "action": "escalate",
+        "escalateTo": "security_team",
+        "sla": "1 hour"
+      },
+      "architectural_impact": {
+        "threshold": "any",
+        "action": "escalate",
+        "escalateTo": "architect",
+        "sla": "2 hours"
+      },
+      "compliance_violation": {
+        "threshold": "any",
+        "action": "block",
+        "escalateTo": "compliance_officer",
+        "sla": "immediate"
+      }
+    },
+    "overrideRules": {
+      "emergency_fix": {
+        "allowedRoles": ["CTO", "VP Engineering"],
+        "requiresJustification": true,
+        "auditLevel": "critical"
+      },
+      "security_patch": {
+        "allowedRoles": ["Security Team", "DevOps"],
+        "requiresJustification": true,
+        "auditLevel": "high"
+      }
+    }
+  },
+  "auditRequirements": {
+    "retention": "7 years",
+    "logLevel": "detailed",
+    "requiredFields": [
+      "timestamp",
+      "user",
+      "action",
+      "ai_confidence",
+      "approval_status",
+      "justification",
+      "affected_resources"
+    ],
+    "exportFormats": ["JSON", "CSV", "PDF"],
+    "realTimeMonitoring": true
+  },
+  "complianceChecks": {
+    "soc2": {
+      "enabled": true,
+      "checks": [
+        {
+          "id": "CC6.1",
+          "name": "Logical and Physical Access Controls",
+          "frequency": "continuous",
+          "automated": true
+        },
+        {
+          "id": "CC7.2",
+          "name": "System Monitoring",
+          "frequency": "continuous",
+          "automated": true
+        },
+        {
+          "id": "CC8.1",
+          "name": "Change Management",
+          "frequency": "per_change",
+          "automated": true
+        }
+      ]
+    },
+    "gdpr": {
+      "enabled": true,
+      "checks": [
+        {
+          "id": "Art-32",
+          "name": "Security of Processing",
+          "frequency": "continuous",
+          "automated": true
+        },
+        {
+          "id": "Art-33",
+          "name": "Breach Notification",
+          "frequency": "on_incident",
+          "automated": true
+        }
+      ]
+    }
+  },
+  "roleBasedAccess": {
+    "roles": [
+      {
+        "name": "Developer",
+        "permissions": [
+          "view_ai_suggestions",
+          "accept_ai_code",
+          "submit_pr",
+          "run_tests"
+        ],
+        "restrictions": [
+          "cannot_override_security",
+          "cannot_deploy_production"
+        ]
+      },
+      {
+        "name": "Senior Developer",
+        "permissions": [
+          "view_ai_suggestions",
+          "accept_ai_code",
+          "approve_pr",
+          "override_low_confidence",
+          "deploy_staging"
+        ],
+        "restrictions": [
+          "cannot_override_security"
+        ]
+      },
+      {
+        "name": "Architect",
+        "permissions": [
+          "approve_architectural_changes",
+          "override_ai_decisions",
+          "modify_governance_rules"
+        ],
+        "restrictions": []
+      },
+      {
+        "name": "Security Team",
+        "permissions": [
+          "approve_security_exceptions",
+          "block_deployments",
+          "view_all_audit_logs"
+        ],
+        "restrictions": []
+      },
+      {
+        "name": "CTO",
+        "permissions": ["all"],
+        "restrictions": []
+      }
+    ]
+  },
+  "metricsTracking": {
+    "approvalMetrics": {
+      "avgApprovalTime": {
+        "l3": "12 hours",
+        "l4": "45 minutes",
+        "l5": "8 minutes"
+      },
+      "autoApprovalRate": {
+        "l3": "0%",
+        "l4": "70%",
+        "l5": "95%"
+      },
+      "escalationRate": {
+        "l3": "100%",
+        "l4": "30%",
+        "l5": "5%"
+      }
+    },
+    "complianceMetrics": {
+      "violationsDetected": {
+        "l3": 12,
+        "l4": 3,
+        "l5": 0
+      },
+      "auditScore": {
+        "l3": 72,
+        "l4": 94,
+        "l5": 99
+      }
+    }
+  }
+}

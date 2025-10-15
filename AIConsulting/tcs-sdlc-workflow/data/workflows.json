@@ -1,0 +1,44 @@
+{
+  "l3": {
+    "maturityLevel": "L3",
+    "name": "Supervised Agent",
+    "description": "AI assists, human validates every action",
+    "totalMetrics": {
+      "duration": "14.5 weeks",
+      "humanTouchpoints": 95,
+      "timeSaved": "44%",
+      "deploymentFrequency": "10/week",
+      "mttr": "20-25 min",
+      "roi": "2,500-3,500%",
+      "annualSavings": "$2.5-4.5M"
+    }
+  },
+  "l4": {
+    "maturityLevel": "L4",
+    "name": "Autonomous Agent",
+    "description": "AI executes independently, human reviews exceptions",
+    "totalMetrics": {
+      "duration": "8.5 weeks",
+      "humanTouchpoints": 25,
+      "timeSaved": "67%",
+      "deploymentFrequency": "50/week",
+      "mttr": "5-8 min",
+      "roi": "3,500-4,500%",
+      "annualSavings": "$4-7M"
+    }
+  },
+  "l5": {
+    "maturityLevel": "L5",
+    "name": "Agentic Workforce",
+    "description": "Multi-agent swarms, strategic human oversight only",
+    "totalMetrics": {
+      "duration": "3.5 weeks",
+      "humanTouchpoints": 8,
+      "timeSaved": "87%",
+      "deploymentFrequency": "200+/week",
+      "mttr": "1-2 min",
+      "roi": "5,500-7,500%",
+      "annualSavings": "$8-12M"
+    }
+  }
+}

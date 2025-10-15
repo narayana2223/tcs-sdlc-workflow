@@ -1,0 +1,309 @@
+{
+  "cursor": {
+    "id": "cursor",
+    "name": "Cursor",
+    "category": "ai-application",
+    "subcategory": "code-editor",
+    "phase": ["design-build"],
+    "description": "AI-powered code editor with codebase understanding and context-aware code completion",
+    "infrastructure": [
+      {
+        "tool": "relace",
+        "purpose": "Code indexing for semantic search and codebase understanding",
+        "critical": true,
+        "layer": "infrastructure"
+      },
+      {
+        "tool": "e2b",
+        "purpose": "Sandbox execution for validating code suggestions",
+        "critical": true,
+        "layer": "infrastructure"
+      },
+      {
+        "tool": "gpt4",
+        "purpose": "LLM for code generation and completion",
+        "critical": true,
+        "layer": "foundation"
+      }
+    ],
+    "capabilities": [
+      "Context-aware code completion",
+      "Multi-file editing",
+      "Natural language commands",
+      "Codebase-wide refactoring",
+      "Inline code generation"
+    ],
+    "maturityBehavior": {
+      "l3": {
+        "description": "Suggests code, developer reviews all suggestions manually",
+        "humanTouchpoints": 10,
+        "autonomy": "0%"
+      },
+      "l4": {
+        "description": "Auto-accepts suggestions if confidence > 85%, developer reviews exceptions",
+        "humanTouchpoints": 3,
+        "autonomy": "70%"
+      },
+      "l5": {
+        "description": "Part of coding swarm with Devin, zero human review for routine tasks",
+        "humanTouchpoints": 0,
+        "autonomy": "100%",
+        "orchestration": "conductor"
+      }
+    },
+    "roi": {
+      "timeSaved": "40%",
+      "costPerSeat": 20,
+      "annualSavings": 120000
+    },
+    "integrationExample": "const context = await relace.search({ query: 'authentication middleware', repo: 'github.com/company/repo' });\nconst code = await cursor.generate({ prompt: userInput, context });",
+    "vendor": {
+      "name": "Anysphere",
+      "website": "https://cursor.sh",
+      "pricing": "$20/seat/month"
+    }
+  },
+  "devin": {
+    "id": "devin",
+    "name": "Devin",
+    "category": "ai-application",
+    "subcategory": "code-editor",
+    "phase": ["design-build"],
+    "description": "Autonomous AI software engineer that implements features end-to-end",
+    "infrastructure": [
+      {
+        "tool": "e2b",
+        "purpose": "Isolated execution environment for autonomous coding",
+        "critical": true,
+        "layer": "infrastructure"
+      },
+      {
+        "tool": "daytona",
+        "purpose": "Cloud development environment for full autonomy",
+        "critical": true,
+        "layer": "infrastructure"
+      },
+      {
+        "tool": "sourcegraph",
+        "purpose": "Code search and pattern analysis",
+        "critical": false,
+        "layer": "infrastructure"
+      }
+    ],
+    "capabilities": [
+      "End-to-end feature implementation",
+      "Autonomous debugging",
+      "Test generation",
+      "Documentation creation",
+      "Self-code review"
+    ],
+    "maturityBehavior": {
+      "l3": {
+        "description": "Not used - requires human for all steps",
+        "humanTouchpoints": 0,
+        "autonomy": "0%"
+      },
+      "l4": {
+        "description": "Implements features autonomously, human reviews final output",
+        "humanTouchpoints": 2,
+        "autonomy": "85%"
+      },
+      "l5": {
+        "description": "Full autonomy, coordinates with CodeRabbit via conductor",
+        "humanTouchpoints": 0,
+        "autonomy": "100%",
+        "orchestration": "conductor"
+      }
+    },
+    "roi": {
+      "timeSaved": "60%",
+      "costPerSeat": 500,
+      "annualSavings": 800000
+    },
+    "vendor": {
+      "name": "Cognition AI",
+      "website": "https://devin.ai",
+      "pricing": "$500/month per agent"
+    }
+  },
+  "coderabbit": {
+    "id": "coderabbit",
+    "name": "CodeRabbit",
+    "category": "ai-application",
+    "subcategory": "code-review",
+    "phase": ["design-build", "test-review"],
+    "description": "AI-powered code review agent that analyzes PRs for logic errors, security issues, and best practices",
+    "infrastructure": [
+      {
+        "tool": "sourcegraph",
+        "purpose": "Code pattern analysis across organization",
+        "critical": true,
+        "layer": "infrastructure"
+      },
+      {
+        "tool": "relace",
+        "purpose": "Fast code indexing for review context",
+        "critical": false,
+        "layer": "infrastructure"
+      }
+    ],
+    "capabilities": [
+      "Automated PR review",
+      "Security vulnerability detection",
+      "Best practice enforcement",
+      "Code quality scoring",
+      "Auto-fix suggestions"
+    ],
+    "maturityBehavior": {
+      "l3": {
+        "description": "Reviews PRs, human approves all suggestions",
+        "humanTouchpoints": 5,
+        "autonomy": "0%"
+      },
+      "l4": {
+        "description": "Auto-approves PRs if quality > 90%, escalates exceptions",
+        "humanTouchpoints": 1,
+        "autonomy": "70%"
+      },
+      "l5": {
+        "description": "Part of review swarm, reaches consensus with other agents",
+        "humanTouchpoints": 0,
+        "autonomy": "100%",
+        "orchestration": "conductor"
+      }
+    },
+    "roi": {
+      "timeSaved": "50%",
+      "costPerSeat": 15,
+      "annualSavings": 200000
+    },
+    "vendor": {
+      "name": "CodeRabbit",
+      "website": "https://coderabbit.ai",
+      "pricing": "$15/seat/month"
+    }
+  },
+  "relace": {
+    "id": "relace",
+    "name": "Relace",
+    "category": "ai-infrastructure",
+    "subcategory": "code-indexing",
+    "phase": ["design-build", "test-review"],
+    "description": "Ultra-fast code indexing and execution platform that powers AI coding agents",
+    "capabilities": [
+      "Semantic code search",
+      "10M+ LOC indexing in minutes",
+      "Sub-100ms query response",
+      "Code structure understanding",
+      "Dependency mapping"
+    ],
+    "maturityBehavior": {
+      "l3": {
+        "description": "Basic code search for developers",
+        "humanTouchpoints": 0,
+        "autonomy": "N/A"
+      },
+      "l4": {
+        "description": "Powers Cursor, greptile, Mabl for autonomous operations",
+        "humanTouchpoints": 0,
+        "autonomy": "N/A"
+      },
+      "l5": {
+        "description": "Critical infrastructure for multi-agent coordination",
+        "humanTouchpoints": 0,
+        "autonomy": "N/A"
+      }
+    },
+    "roi": {
+      "timeSaved": "N/A - Infrastructure",
+      "annualSavings": 0
+    },
+    "vendor": {
+      "name": "Relace",
+      "website": "https://relace.ai",
+      "pricing": "Enterprise pricing"
+    }
+  },
+  "e2b": {
+    "id": "e2b",
+    "name": "E2B",
+    "category": "ai-infrastructure",
+    "subcategory": "code-execution",
+    "phase": ["design-build", "test-review"],
+    "description": "Secure sandbox execution environment for AI agents to run code safely",
+    "capabilities": [
+      "Isolated code execution",
+      "100% safe (no production risk)",
+      "10x faster than local execution",
+      "Multi-language support",
+      "Consistent environment"
+    ],
+    "maturityBehavior": {
+      "l3": {
+        "description": "Not needed - humans run code locally",
+        "humanTouchpoints": 0,
+        "autonomy": "N/A"
+      },
+      "l4": {
+        "description": "Critical for Cursor/Devin autonomous execution",
+        "humanTouchpoints": 0,
+        "autonomy": "N/A"
+      },
+      "l5": {
+        "description": "Essential for all agent swarms",
+        "humanTouchpoints": 0,
+        "autonomy": "N/A"
+      }
+    },
+    "roi": {
+      "timeSaved": "N/A - Infrastructure",
+      "annualSavings": 0
+    },
+    "vendor": {
+      "name": "E2B",
+      "website": "https://e2b.dev",
+      "pricing": "$0.50/hour compute"
+    }
+  },
+  "sourcegraph": {
+    "id": "sourcegraph",
+    "name": "Sourcegraph",
+    "category": "ai-infrastructure",
+    "subcategory": "code-indexing",
+    "phase": ["design-build", "test-review", "document-deploy"],
+    "description": "Universal code search across all repositories, powers AI code analysis",
+    "capabilities": [
+      "Cross-repository search",
+      "Pattern detection",
+      "Copy-paste detection",
+      "API discovery",
+      "Code intelligence"
+    ],
+    "maturityBehavior": {
+      "l3": {
+        "description": "Manual code search by developers",
+        "humanTouchpoints": 0,
+        "autonomy": "N/A"
+      },
+      "l4": {
+        "description": "Powers CodeRabbit, Mintlify, Ellipsis",
+        "humanTouchpoints": 0,
+        "autonomy": "N/A"
+      },
+      "l5": {
+        "description": "Critical infrastructure for agent coordination",
+        "humanTouchpoints": 0,
+        "autonomy": "N/A"
+      }
+    },
+    "roi": {
+      "timeSaved": "N/A - Infrastructure",
+      "annualSavings": 0
+    },
+    "vendor": {
+      "name": "Sourcegraph",
+      "website": "https://sourcegraph.com",
+      "pricing": "$99/user/month"
+    }
+  }
+}
