@@ -186,7 +186,7 @@ export default function GovernancePage() {
                     <span>Stage: {tool.stage}</span>
                     <span>•</span>
                     <span>Avg: {tool.avgTime}</span>
-                    {tool.autoFixed !== undefined && (
+                    {'autoFixed' in tool && tool.autoFixed !== undefined && (
                       <>
                         <span>•</span>
                         <span className="text-green-600 font-medium">{tool.autoFixed} auto-fixed</span>
